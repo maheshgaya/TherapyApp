@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">MMELK</string>
-    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_main">Serenity</string>
+    <string name="label_goal">Goals</string>
+    <string name="label_point">Points</string>
 </resources>

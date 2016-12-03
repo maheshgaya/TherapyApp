@@ -1,4 +1,4 @@
-package com.example.kelly.mmelk.Adapter;
+package com.example.kelly.mmelk.adapter;
 
 /**
  * Created by Mahesh Gaya on 11/30/16.

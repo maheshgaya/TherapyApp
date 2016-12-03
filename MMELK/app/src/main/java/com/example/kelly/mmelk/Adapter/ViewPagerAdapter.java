@@ -1,4 +1,4 @@
-package com.example.kelly.mmelk.Adapter;
+package com.example.kelly.mmelk.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
