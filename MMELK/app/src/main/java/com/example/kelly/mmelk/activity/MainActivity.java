@@ -1,12 +1,14 @@
 package com.example.kelly.mmelk.activity;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 
 import com.example.kelly.mmelk.R;
@@ -22,6 +24,7 @@ import butterknife.ButterKnife;
  * Tutorial: <a href="http://www.androidhive.info/2015/09/android-material-design-working-with-tabs/">Android Hive</a>
  */
 public class MainActivity extends AppCompatActivity {
+    private static final String TAG = MainActivity.class.getSimpleName();
 
     @BindString(R.string.label_goal) String mGoalLabel;
     @BindString(R.string.label_point) String mPointLabel;
@@ -40,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         //handles tabs and fragments
         setupViewPage(mViewPager);
         mTabLayout.setupWithViewPager(mViewPager);
+        setupTabIcons();
 
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
@@ -56,9 +60,23 @@ public class MainActivity extends AppCompatActivity {
      * @param viewPager
      */
     private void setupViewPage(ViewPager viewPager) {
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager(), this);
         adapter.addFrag(new GoalFragment(), mGoalLabel);
         adapter.addFrag(new PointFragment(), mPointLabel);
         viewPager.setAdapter(adapter);
+    }
+
+    /**
+     * Setup icons
+     */
+    private void setupTabIcons() {
+        int[] tabIcons = {
+                R.drawable.ic_walking,
+                R.drawable.ic_graph
+        };
+
+        mTabLayout.getTabAt(0).setIcon(tabIcons[0]);
+        mTabLayout.getTabAt(1).setIcon(tabIcons[1]);
+
     }
 }
