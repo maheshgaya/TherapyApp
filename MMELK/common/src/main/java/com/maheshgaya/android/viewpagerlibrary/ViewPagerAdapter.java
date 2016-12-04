@@ -1,4 +1,4 @@
-package com.example.kelly.mmelk.adapter;
+package com.maheshgaya.android.viewpagerlibrary;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -10,7 +10,6 @@ import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ImageSpan;
 
-import com.example.kelly.mmelk.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,7 +52,8 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return mFragmentTitleList.get(position);
+//        return mFragmentTitleList.get(position);
+        return null;
 
     }
 }

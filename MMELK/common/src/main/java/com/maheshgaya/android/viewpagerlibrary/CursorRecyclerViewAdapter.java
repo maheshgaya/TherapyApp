@@ -1,4 +1,4 @@
-package com.example.kelly.mmelk.adapter;
+package com.maheshgaya.android.viewpagerlibrary;
 
 /**
  * Created by Mahesh Gaya on 11/30/16.
