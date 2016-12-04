@@ -8,6 +8,8 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 
 import com.example.kelly.mmelk.R;
 import com.maheshgaya.android.viewpagerlibrary.ViewPagerAdapter;
@@ -43,6 +45,33 @@ public class MainActivity extends AppCompatActivity {
         setupViewPage(mViewPager);
         mTabLayout.setupWithViewPager(mViewPager);
         setupTabIcons();
+
+
+        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                switch (position){
+                    case 0: {
+                        mFab.setVisibility(View.VISIBLE);
+                        break;
+                    }
+                    case 1: {
+                        mFab.setVisibility(View.GONE);
+                        break;
+                    }
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         mFab.setOnClickListener(new View.OnClickListener() {
