@@ -3,4 +3,5 @@
     <string name="title_activity_main">Serenity</string>
     <string name="label_goal">Goals</string>
     <string name="label_point">Points</string>
+    <string name="content_authority">com.example.kelly.mmelk.app</string>
 </resources>

@@ -18,6 +18,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!-- queries the SQLite database -->
+        <provider
+            android:authorities="@string/content_authority"
+            android:name=".data.ActivitiesProvider"
+            android:enabled="true"
+            android:syncable="true"
+            android:exported="true"/>
     </application>
 
 </manifest>
