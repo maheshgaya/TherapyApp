@@ -1,4 +1,4 @@
-package com.maheshgaya.android.viewpagerlibrary;
+package com.maheshgaya.android.common;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

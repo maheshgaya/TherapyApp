@@ -18,7 +18,7 @@ public class ActivitiesContract {
     public static final String PATH_GOALS = "goals";
     public static final String PATH_QUESTIONS = "questions";
     public static final String PATH_ANSWERS = "answers";
-    public static final String PATH_POINTS = "paths";
+    public static final String PATH_POINTS = "points";
 
     /**
      * Activity Table

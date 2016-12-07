@@ -1,4 +1,4 @@
-package com.maheshgaya.android.viewpagerlibrary;
+package com.maheshgaya.android.common;
 
 /**
  * Created by Mahesh Gaya on 11/30/16.
