@@ -8,11 +8,9 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 
 import com.example.kelly.mmelk.R;
-import com.maheshgaya.android.viewpagerlibrary.ViewPagerAdapter;
+import com.maheshgaya.android.common.ViewPagerAdapter;
 import com.example.kelly.mmelk.fragment.GoalFragment;
 import com.example.kelly.mmelk.fragment.PointFragment;
 

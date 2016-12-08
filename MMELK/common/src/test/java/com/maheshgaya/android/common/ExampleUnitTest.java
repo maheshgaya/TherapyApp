@@ -1,4 +1,4 @@
-package com.maheshgaya.android.viewpagerlibrary;
+package com.maheshgaya.android.common;
 
 import org.junit.Test;
 
