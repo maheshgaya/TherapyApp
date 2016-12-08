@@ -9,8 +9,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Goals"/>
+            android:id="@+id/empty_goals_recycleview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/card_padding"
+            android:gravity="center"
+            android:visibility="gone"
+            android:text="@string/no_goals_available" />
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/goals_recycleview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 </ScrollView>
