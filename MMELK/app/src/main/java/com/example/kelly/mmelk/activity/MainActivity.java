@@ -1,5 +1,7 @@
 package com.example.kelly.mmelk.activity;
 
+import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -7,9 +9,13 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 
+import com.example.kelly.mmelk.Constants;
 import com.example.kelly.mmelk.R;
+import com.example.kelly.mmelk.data.ActivitiesContract;
+import com.example.kelly.mmelk.data.DataService;
 import com.maheshgaya.android.common.ViewPagerAdapter;
 import com.example.kelly.mmelk.fragment.GoalFragment;
 import com.example.kelly.mmelk.fragment.PointFragment;
@@ -37,14 +43,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        setSupportActionBar(mToolbar);
+        setSupportActionBar(mToolbar); //setup the toolbar
+
+        initializeDatabase(); //intializes the database if it is empty
 
         //handles tabs and fragments
         setupViewPage(mViewPager);
         mTabLayout.setupWithViewPager(mViewPager);
         setupTabIcons();
 
-
+        //add and remove FAB according to page selected
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -71,10 +79,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         mFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //TODO: This should open the Add Activity Page
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
@@ -104,5 +112,24 @@ public class MainActivity extends AppCompatActivity {
         mTabLayout.getTabAt(0).setIcon(tabIcons[0]);
         mTabLayout.getTabAt(1).setIcon(tabIcons[1]);
 
+    }
+
+    private void initializeDatabase(){
+        Cursor activitiesCursor = this.getContentResolver().query(
+                ActivitiesContract.ActivityEntry.CONTENT_URI,
+                Constants.ACTIVITIES_PROJECTION,
+                null,
+                null,
+                null
+        );
+        try {
+            if (activitiesCursor.getCount() == 0) {
+                Log.d(TAG, "initializeDatabase: database is being initialized.");
+                Intent dataIntent = new Intent(this, DataService.class);
+                startService(dataIntent);
+            }
+        } finally {
+            activitiesCursor.close();
+        }
     }
 }

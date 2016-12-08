@@ -1,0 +1,15 @@
+{
+	"activities":[
+		{"name": "Deep Breathing", "category": "Relaxation"},
+		{"name": "Meditation or Prayer", "category": "Relaxation"},
+		{"name": "Write in a Journal", "category": "Relaxation"},
+		{"name": "Create Art", "category": "Relaxation"},
+		{"name": "Walk or Run", "category": "Exercise"},
+		{"name": "Swim", "category": "Exercise"},
+		{"name": "Lift Weights", "category": "Exercise"},
+		{"name": "Yoga", "category": "Exercise"},
+		{"name": "Play a Sport", "category": "Exercise"},
+		{"name": "Call a Friend or Family Member", "category": "Social"},
+		{"name": "Visit a Friend or Family Member", "category": "Social"}
+	]
+}

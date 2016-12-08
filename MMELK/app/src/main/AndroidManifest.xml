@@ -18,6 +18,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!-- upload data into database from the JSON file-->
+        <service android:name=".data.DataService"/>
         <!-- queries the SQLite database -->
         <provider
             android:authorities="@string/content_authority"
