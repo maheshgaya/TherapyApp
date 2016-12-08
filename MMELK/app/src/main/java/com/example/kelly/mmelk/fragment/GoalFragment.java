@@ -117,7 +117,7 @@ public class GoalFragment extends Fragment implements LoaderManager.LoaderCallba
             }
             case ACTIVITIES_LOADER:{
                 mActivitiesCursor = data;
-                //TODO: TASK ASSIGNMENT: @LITHO - update UI for Activities
+                //TODO: TASK ASSIGNMENT: @LHITO - update UI for Activities
                 //You should initialize the ListView in onCreate() method and then use it here
             }
         }
