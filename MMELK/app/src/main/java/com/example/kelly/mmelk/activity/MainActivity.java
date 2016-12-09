@@ -38,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.viewpager) ViewPager mViewPager; //page content
     @BindView(R.id.fab) FloatingActionButton mFab;
 
+    private static final int ACTIVITIES_REQUEST_CODE = 101;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,9 +84,9 @@ public class MainActivity extends AppCompatActivity {
         mFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO: This should open the Add Activity Page
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent activitiesIntent = new Intent(getApplicationContext(), ActivitiesActivity.class);
+                //startActivityForResult(activitiesIntent, ACTIVITIES_REQUEST_CODE);
+                startActivity(activitiesIntent);
             }
         });
     }

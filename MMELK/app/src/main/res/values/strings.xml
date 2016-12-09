@@ -6,4 +6,12 @@
     <string name="content_authority">com.example.kelly.mmelk.app</string>
 
     <string name="no_goals_available">No Goals yet! Tap on + to add a new goal!</string>
+    <string name="no_activities_available">Seems like an error occurred! No activities to display!</string>
+
+    <string name="activities_activity_label">Select Activity</string>
+    
+    <string name="freq_daily">Daily</string>
+    <string name="freq_weekly">Weekly</string>
+    <string name="freq_two_days_weekly">2 Days a Week</string>
+    <string name="freq_three_days_weekly">3 Days a Week</string>
 </resources>
