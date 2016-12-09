@@ -18,7 +18,6 @@ import com.example.kelly.mmelk.Constants;
 import com.example.kelly.mmelk.R;
 import com.example.kelly.mmelk.adapter.ActivitiesAdapter;
 import com.example.kelly.mmelk.data.ActivitiesContract;
-import com.maheshgaya.android.common.DividerItemDecoration;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
