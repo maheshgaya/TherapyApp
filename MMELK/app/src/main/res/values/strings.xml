@@ -14,4 +14,16 @@
     <string name="freq_weekly">Weekly</string>
     <string name="freq_two_days_weekly">2 Days a Week</string>
     <string name="freq_three_days_weekly">3 Days a Week</string>
+
+    <!-- drawables -->
+    <string name="res_canvas" translatable="false">canvas</string>
+    <string name="res_dumbbell" translatable="false">dumbbell</string>
+    <string name="res_football" translatable="false">football</string>
+    <string name="res_lotus_position" translatable="false">lotus_position</string>
+    <string name="res_meditation" translatable="false">meditation</string>
+    <string name="res_newspaper" translatable="false">newspaper</string>
+    <string name="res_phone_call" translatable="false">phone_call</string>
+    <string name="res_running" translatable="false">running</string>
+    <string name="res_swimming" translatable="false">swimming</string>
+    <string name="res_team" translatable="false">team</string>
 </resources>

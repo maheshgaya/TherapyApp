@@ -1,20 +1,31 @@
 package com.example.kelly.mmelk.adapter;
 
+import android.content.ContentResolver;
 import android.content.Context;
+import android.content.res.Resources;
 import android.database.Cursor;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.PictureDrawable;
+import android.net.Uri;
+import android.os.Build;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.caverock.androidsvg.SVG;
 import com.example.kelly.mmelk.Constants;
 import com.example.kelly.mmelk.R;
+import com.example.kelly.mmelk.Utilities;
 import com.maheshgaya.android.common.CursorRecyclerViewAdapter;
 
+import java.io.InputStream;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 
 import butterknife.BindView;
@@ -35,14 +46,18 @@ public class ActivitiesAdapter extends CursorRecyclerViewAdapter<ActivitiesAdapt
         headers = new ArrayList<String>(){};
     }
 
+
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, Cursor cursor) {
         final String activityId = String.valueOf(cursor.getLong(Constants.COLUMN_ACTIVITIES_ID));
 
         String activityName = cursor.getString(Constants.COLUMN_ACTIVITIES_NAME);
         viewHolder.activitiesNameTextView.setText(activityName);
-        String category = cursor.getString(Constants.COLUMN_ACTIVITIES_CATEGORY);
 
+        String imageStr = cursor.getString(Constants.COLUMN_ACTIVITIES_PICTURE);
+        viewHolder.iconImageButton.setImageResource(Utilities.getRes(imageStr, mContext));
+
+        String category = cursor.getString(Constants.COLUMN_ACTIVITIES_CATEGORY);
         if (!headers.contains(category) || headers.isEmpty()) {
             headers.add(category);
             if (headers.size() > 1){
@@ -50,6 +65,7 @@ public class ActivitiesAdapter extends CursorRecyclerViewAdapter<ActivitiesAdapt
             }
             viewHolder.headerTextView.setVisibility(View.VISIBLE);
             viewHolder.headerTextView.setText(category);
+
         } else {
             viewHolder.headerTextView.setVisibility(View.GONE);
             viewHolder.lineViewDivider.setVisibility(View.GONE);
@@ -73,6 +89,7 @@ public class ActivitiesAdapter extends CursorRecyclerViewAdapter<ActivitiesAdapt
     public static class ViewHolder extends RecyclerView.ViewHolder{
         @BindView(R.id.activities_name_textview)TextView activitiesNameTextView;
         @BindView(R.id.activities_header_textview)TextView headerTextView;
+        @BindView(R.id.activities_icon_imagebutton)ImageButton iconImageButton;
         @BindView(R.id.line_divider)View lineViewDivider;
         public ViewHolder(View itemView) {
             super(itemView);

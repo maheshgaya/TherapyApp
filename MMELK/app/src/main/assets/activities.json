@@ -1,15 +1,15 @@
 {
 	"activities":[
-		{"name": "Deep Breathing", "category": "Relaxation"},
-		{"name": "Meditation or Prayer", "category": "Relaxation"},
-		{"name": "Write in a Journal", "category": "Relaxation"},
-		{"name": "Create Art", "category": "Relaxation"},
-		{"name": "Walk or Run", "category": "Exercise"},
-		{"name": "Swim", "category": "Exercise"},
-		{"name": "Lift Weights", "category": "Exercise"},
-		{"name": "Yoga", "category": "Exercise"},
-		{"name": "Play a Sport", "category": "Exercise"},
-		{"name": "Call a Friend or Family Member", "category": "Social"},
-		{"name": "Visit a Friend or Family Member", "category": "Social"}
+		{"name": "Deep Breathing", "category": "Relaxation", "picture": "meditation"},
+		{"name": "Meditation or Prayer", "category": "Relaxation", "picture": "meditation"},
+		{"name": "Write in a Journal", "category": "Relaxation", "picture": "newspaper"},
+		{"name": "Create Art", "category": "Relaxation", "picture": "canvas"},
+		{"name": "Walk or Run", "category": "Exercise", "picture": "running"},
+		{"name": "Swim", "category": "Exercise", "picture": "swimming"},
+		{"name": "Lift Weights", "category": "Exercise", "picture": "dumbbell"},
+		{"name": "Yoga", "category": "Exercise", "picture": "lotus_position"},
+		{"name": "Play a Sport", "category": "Exercise", "picture": "football"},
+		{"name": "Call a Friend or Family Member", "category": "Social", "picture": "phone_call"},
+		{"name": "Visit a Friend or Family Member", "category": "Social", "picture": "team"}
 	]
 }

@@ -40,7 +40,7 @@ public class DataService extends IntentService {
     private void uploadJsonFile(){
         try {
             //read from file and into buffer
-            InputStream inputStream = this.getAssets().open(Constants.ACTIVITIES_JSON);
+            InputStream inputStream = this.getAssets().open(Constants.DATA_ACTIVITIES_JSON);
             int size = inputStream.available();
             byte[] buffer = new byte[size];
             inputStream.read(buffer);
@@ -69,12 +69,13 @@ public class DataService extends IntentService {
     private void readActivities(String activitiesJson)
         throws JSONException{
         JSONObject activitiesJsonObject = new JSONObject(activitiesJson);
-        JSONArray activitiesArray = activitiesJsonObject.getJSONArray(Constants.ACTIVITIES_ARRAY);
+        JSONArray activitiesArray = activitiesJsonObject.getJSONArray(Constants.DATA_ACTIVITIES_ARRAY);
         for (int i = 0; i < activitiesArray.length(); i++){
             JSONObject activityObject = activitiesArray.getJSONObject(i);
-            String name = activityObject.getString(Constants.ACTIVITIES_NAME);
-            String category = activityObject.getString(Constants.ACTIVITIES_CATEGORY);
-            addActivity(name, category);
+            String name = activityObject.getString(Constants.DATA_ACTIVITIES_NAME);
+            String category = activityObject.getString(Constants.DATA_ACTIVITIES_CATEGORY);
+            String picture = activityObject.getString(Constants.DATA_ACTIVITIES_PICTURE);
+            addActivity(name, category, picture);
         }
     }
 
@@ -85,7 +86,7 @@ public class DataService extends IntentService {
      * @param category
      * @return
      */
-    private long addActivity(String name, String category) {
+    private long addActivity(String name, String category, String picture) {
         long activityId;
         Cursor activityCursor = this.getContentResolver().query(
                 ActivitiesContract.ActivityEntry.CONTENT_URI,
@@ -103,6 +104,7 @@ public class DataService extends IntentService {
                 ContentValues activityValues = new ContentValues();
                 activityValues.put(ActivitiesContract.ActivityEntry.COLUMN_NAME, name);
                 activityValues.put(ActivitiesContract.ActivityEntry.COLUMN_CATEGORY, category);
+                activityValues.put(ActivitiesContract.ActivityEntry.COLUMN_PICTURE, picture);
 
                 Uri insertUri = this.getContentResolver().insert(
                         ActivitiesContract.ActivityEntry.CONTENT_URI,

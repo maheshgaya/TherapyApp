@@ -39,6 +39,7 @@ public class ActivitiesContract {
         //Columns
         public static final String COLUMN_NAME = "name";
         public static final String COLUMN_CATEGORY = "category";
+        public static final String COLUMN_PICTURE = "picture";
 
         //building the paths
         public static Uri buildActivityUri(long id){

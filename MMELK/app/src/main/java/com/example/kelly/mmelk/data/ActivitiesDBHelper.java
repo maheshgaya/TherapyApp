@@ -10,7 +10,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class ActivitiesDBHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "therapy";
-    public static final int DATABASE_VERSION = 2;
+    public static final int DATABASE_VERSION = 3;
 
     /**
      * Required Constructor
@@ -37,7 +37,8 @@ public class ActivitiesDBHelper extends SQLiteOpenHelper {
                 "CREATE TABLE " + ActivitiesContract.ActivityEntry.TABLE_NAME + "(" +
                         ActivitiesContract.ActivityEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                         ActivitiesContract.ActivityEntry.COLUMN_NAME + " TEXT NOT NULL, " +
-                        ActivitiesContract.ActivityEntry.COLUMN_CATEGORY + " TEXT NOT NULL " +
+                        ActivitiesContract.ActivityEntry.COLUMN_CATEGORY + " TEXT NOT NULL, " +
+                        ActivitiesContract.ActivityEntry.COLUMN_PICTURE + " TEXT NOT NULL " +
                 ");";
 
         /**
