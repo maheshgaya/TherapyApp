@@ -24,7 +24,7 @@ public class PointFragment extends Fragment implements LoaderManager.LoaderCallb
     public PointFragment(){
         //required default constructor
     }
-//hi
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
