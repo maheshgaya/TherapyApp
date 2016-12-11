@@ -1,6 +1,9 @@
 # CS188Project3
 CS188 Project 3 Group 1
 
+## Disclaimer
+The icons were retrieved from [Flat Icons](http://www.flaticon.com/)
+
 ## Using the Source Code
 1. Clone the project 
 

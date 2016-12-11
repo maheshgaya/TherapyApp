@@ -18,7 +18,7 @@ public class ActivitiesContract {
     public static final String PATH_GOALS = "goals";
     public static final String PATH_QUESTIONS = "questions";
     public static final String PATH_ANSWERS = "answers";
-    public static final String PATH_POINTS = "paths";
+    public static final String PATH_POINTS = "points";
 
     /**
      * Activity Table
@@ -39,7 +39,7 @@ public class ActivitiesContract {
         //Columns
         public static final String COLUMN_NAME = "name";
         public static final String COLUMN_CATEGORY = "category";
-        public static final String COLUMN_PICTURE_URL = "picture_url";
+        public static final String COLUMN_PICTURE = "picture";
 
         //building the paths
         public static Uri buildActivityUri(long id){

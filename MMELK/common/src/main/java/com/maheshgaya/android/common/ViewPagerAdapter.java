@@ -1,14 +1,9 @@
-package com.maheshgaya.android.viewpagerlibrary;
+package com.maheshgaya.android.common;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.content.ContextCompat;
-import android.text.Spannable;
-import android.text.SpannableString;
-import android.text.style.ImageSpan;
 
 
 import java.util.ArrayList;
@@ -25,10 +20,6 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
     private Context mContext;
     private final List<Fragment> mFragmentList = new ArrayList<>();
     private final List<String> mFragmentTitleList = new ArrayList<>();
-    private final int[] imageResId = {
-            R.drawable.ic_graph,
-            R.drawable.ic_walking
-    };
 
     public ViewPagerAdapter(FragmentManager manager, Context context) {
         super(manager);
