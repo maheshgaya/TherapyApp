@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <array name="frequency">
+    <string-array name="frequency">
         <item>@string/freq_daily</item>
         <item>@string/freq_weekly</item>
         <item>@string/freq_two_days_weekly</item>
         <item>@string/freq_three_days_weekly</item>
-    </array>
+    </string-array>
+
+    <string-array name="duration">
+        <item>@string/duration_fifteen_min</item>
+        <item>@string/duration_thirty_min</item>
+        <item>@string/duration_one_hour</item>
+        <item>@string/duration_two_hour</item>
+    </string-array>
 </resources>
