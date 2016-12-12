@@ -1,6 +1,9 @@
 # CS188Project3
 CS188 Project 3 Group 1
 
+## Disclaimer
+The icons were retrieved from [Flat Icons](http://www.flaticon.com/)
+
 ## Using the Source Code
 1. Clone the project 
 
@@ -14,6 +17,11 @@ CS188 Project 3 Group 1
     File -> New -> Import Project -> (Choose CS188Project3/MMELK/)
   ```
 
+## Contributing to the Source Code
+1. Fork this repository by clicking on the Fork button on the top right corner
+2. [Clone](https://help.github.com/articles/cloning-a-repository/) your own repository on your desktop
+3. Commit your changes to your own repository
+4. Once you are ready for your patch, create a [pull request](https://yangsu.github.io/pull-request-tutorial/)
 
 ## License
 

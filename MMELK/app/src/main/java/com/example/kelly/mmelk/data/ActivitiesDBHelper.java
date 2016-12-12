@@ -10,7 +10,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class ActivitiesDBHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "therapy";
-    public static final int DATABASE_VERSION = 1;
+    public static final int DATABASE_VERSION = 3;
 
     /**
      * Required Constructor
@@ -30,8 +30,7 @@ public class ActivitiesDBHelper extends SQLiteOpenHelper {
         /**
          * CREATE TABLE activites (_id INTEGER PRIMARY KEY AUTOINCREMENT,
          * name TEXT NOT NULL,
-         * category TEXT NOT NULL,
-         * picture_url TEXT NOT NULL
+         * category TEXT NOT NULL
          * );
          */
         final String SQL_CREATE_ACTIVITIES_TABLE =
@@ -39,7 +38,7 @@ public class ActivitiesDBHelper extends SQLiteOpenHelper {
                         ActivitiesContract.ActivityEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                         ActivitiesContract.ActivityEntry.COLUMN_NAME + " TEXT NOT NULL, " +
                         ActivitiesContract.ActivityEntry.COLUMN_CATEGORY + " TEXT NOT NULL, " +
-                        ActivitiesContract.ActivityEntry.COLUMN_PICTURE_URL + " TEXT NOT NULL" +
+                        ActivitiesContract.ActivityEntry.COLUMN_PICTURE + " TEXT NOT NULL " +
                 ");";
 
         /**
@@ -69,7 +68,7 @@ public class ActivitiesDBHelper extends SQLiteOpenHelper {
         final String SQL_CREATE_QUESTIONS_TABLE =
                 "CREATE TABLE " + ActivitiesContract.QuestionEntry.TABLE_NAME + "(" +
                         ActivitiesContract.QuestionEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                        ActivitiesContract.QuestionEntry.COLUMN_QUESTION + " TEXT NOT NULL" +
+                        ActivitiesContract.QuestionEntry.COLUMN_QUESTION + " INT NOT NULL" +
                 ");";
 
         /**

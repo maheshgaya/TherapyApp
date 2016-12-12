@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string-array
         name="feelings">
         <item>@string/answer_energetic</item>
@@ -11,12 +12,25 @@
         <item>@string/answer_tired</item>
     </string-array>
 
-    <string-array
-        name="meals">
+    <string-array name="meals">
         <item>@string/answer_breakfast</item>
         <item>@string/answer_lunch</item>
         <item>@string/answer_dinner</item>
         <item>@string/answer_snacks</item>
         <item>@string/answer_nothing</item>
+    </string-array>
+
+    <string-array name="frequency">
+        <item>@string/freq_daily</item>
+        <item>@string/freq_weekly</item>
+        <item>@string/freq_two_days_weekly</item>
+        <item>@string/freq_three_days_weekly</item>
+    </string-array>
+
+    <string-array name="duration">
+        <item>@string/duration_fifteen_min</item>
+        <item>@string/duration_thirty_min</item>
+        <item>@string/duration_one_hour</item>
+        <item>@string/duration_two_hour</item>
     </string-array>
 </resources>
