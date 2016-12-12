@@ -13,6 +13,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.kelly.mmelk.Constants;
 import com.example.kelly.mmelk.R;
@@ -33,6 +34,7 @@ public class GoalFragment extends Fragment implements LoaderManager.LoaderCallba
 
     private Cursor mActivitiesCursor;
 
+    @BindView(R.id.empty_goals_recycleview)TextView mEmptyRecycleView;
     @BindView(R.id.goals_recycleview) RecyclerView mRecycleView;
     private GoalsAdapter mGoalsActivitiesAdapter;
 
@@ -73,6 +75,7 @@ public class GoalFragment extends Fragment implements LoaderManager.LoaderCallba
         linearTrailerLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mRecycleView.setLayoutManager(linearTrailerLayoutManager);
         mRecycleView.setAdapter(mGoalsActivitiesAdapter);
+
         return rootView;
     }
 
@@ -124,6 +127,14 @@ public class GoalFragment extends Fragment implements LoaderManager.LoaderCallba
         switch (loader.getId()){
             case GOAL_ACTIVITIES_LOADER:{
                 mGoalsActivitiesAdapter.swapCursor(data);
+                if (data.getCount()  > 0){
+                    mRecycleView.setVisibility(View.VISIBLE);
+                    mEmptyRecycleView.setVisibility(View.GONE);
+
+                } else {
+                    mRecycleView.setVisibility(View.GONE);
+                    mEmptyRecycleView.setVisibility(View.VISIBLE);
+                }
                 break;
             }
             case ACTIVITIES_LOADER:{
