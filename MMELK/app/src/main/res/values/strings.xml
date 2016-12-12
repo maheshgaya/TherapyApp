@@ -5,6 +5,32 @@
     <string name="title_activity_main">Serenity</string>
     <string name="label_goal">Goals</string>
     <string name="label_point">Points</string>
+
+    <string name="question_one">Did you reach your goal yet for this week?</string>
+    <string name="question_two">How would you rate your overall mood today?</string>
+    <string name="question_three">How noticeable were any aches or pains today?</string>
+    <string name="question_four">What activities did you do today?</string>
+    <string name="question_five">How would you rate your overall mood today?</string>
+    <string name="question_six">How would you characterize your feelings right now?</string>
+    <string name="question_seven">How well could you concentrate today?</string>
+    <string name="question_eight">How energetic do you feel today?</string>
+    <string name="question_nine">How interested were you in daily activities today?</string>
+    <string name="question_ten">How many hours did you sleep last night?</string>
+    <string name="answer_yes">Yes</string>
+    <string name="answer_no">No</string>
+    <string name="answer_energetic">Energetic</string>
+    <string name="answer_happy">Happy</string>
+    <string name="answer_angry">Angry</string>
+    <string name="answer_apathetic">Apathetic</string>
+    <string name="answer_sad">Sad</string>
+    <string name="answer_content">Content</string>
+    <string name="answer_tired">Tired</string>
+    <string name="answer_breakfast">Breakfast</string>
+    <string name="answer_lunch">Lunch</string>
+    <string name="answer_dinner">Dinner</string>
+    <string name="answer_snacks">Snacks</string>
+    <string name="answer_nothing">Nothing</string>
+
     <string name="action_about">About</string>
     <string name="activities_detail_label">Customize</string>
 
