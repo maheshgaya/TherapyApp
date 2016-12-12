@@ -6,6 +6,7 @@
     <string name="label_goal">Goals</string>
     <string name="label_point">Points</string>
     <string name="action_about">About</string>
+    <string name="activities_detail_label">Customize</string>
 
     <!-- content provider -->
     <string name="content_authority" translatable="false">com.example.kelly.mmelk.app</string>
@@ -15,6 +16,7 @@
     <string name="no_activities_available">Seems like an error occurred! No activities to display!</string>
     
     <!-- frequency -->
+    <string name="spinner_hint">Select One</string>
     <string name="freq_name">Frequency</string>
     <string name="freq_daily">Daily</string>
     <string name="freq_weekly">Weekly</string>
