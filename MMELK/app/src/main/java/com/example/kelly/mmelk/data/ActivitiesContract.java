@@ -72,6 +72,11 @@ public class ActivitiesContract {
         public static Uri buildGoalUri(long id){
             return ContentUris.withAppendedId(CONTENT_URI, id);
         }
+
+        //content://authority/goals/activities
+        public static Uri buildGoalsActivities(){
+            return CONTENT_URI.buildUpon().appendPath(ActivityEntry.TABLE_NAME).build();
+        };
     }
 
     /**

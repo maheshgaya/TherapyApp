@@ -1,20 +1,26 @@
 package com.example.kelly.mmelk.fragment;
 
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.kelly.mmelk.Constants;
 import com.example.kelly.mmelk.R;
+import com.example.kelly.mmelk.adapter.ActivitiesAdapter;
+import com.example.kelly.mmelk.adapter.GoalsAdapter;
 import com.example.kelly.mmelk.data.ActivitiesContract;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -22,11 +28,13 @@ import butterknife.ButterKnife;
  */
 
 public class GoalFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor>{
-    private static final int GOAL_LOADER = 0;
+    private static final int GOAL_ACTIVITIES_LOADER = 0;
     private static final int ACTIVITIES_LOADER = 1;
 
-    private Cursor mGoalsCursor;
     private Cursor mActivitiesCursor;
+
+    @BindView(R.id.goals_recycleview) RecyclerView mRecycleView;
+    private GoalsAdapter mGoalsActivitiesAdapter;
 
     public GoalFragment(){
         //required default constructor
@@ -34,7 +42,7 @@ public class GoalFragment extends Fragment implements LoaderManager.LoaderCallba
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        getLoaderManager().initLoader(GOAL_LOADER, null, this);
+        getLoaderManager().initLoader(GOAL_ACTIVITIES_LOADER, null, this);
         getLoaderManager().initLoader(ACTIVITIES_LOADER, null, this);
         super.onActivityCreated(savedInstanceState);
     }
@@ -48,9 +56,6 @@ public class GoalFragment extends Fragment implements LoaderManager.LoaderCallba
     @Override
     public void onDestroy() {
         //close cursors to avoid memory leak
-        if (mGoalsCursor != null){
-            mGoalsCursor.close();
-        }
         if (mActivitiesCursor != null){
             mActivitiesCursor.close();
         }
@@ -62,6 +67,12 @@ public class GoalFragment extends Fragment implements LoaderManager.LoaderCallba
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_goals, container, false);
         ButterKnife.bind(this, rootView);
+        mGoalsActivitiesAdapter = new GoalsAdapter(getContext(), null);
+        mRecycleView.setHasFixedSize(true);
+        LinearLayoutManager linearTrailerLayoutManager = new LinearLayoutManager(getContext());
+        linearTrailerLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        mRecycleView.setLayoutManager(linearTrailerLayoutManager);
+        mRecycleView.setAdapter(mGoalsActivitiesAdapter);
         return rootView;
     }
 
@@ -75,10 +86,11 @@ public class GoalFragment extends Fragment implements LoaderManager.LoaderCallba
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         switch (id){
             //queries Goals table
-            case GOAL_LOADER:{
+            case GOAL_ACTIVITIES_LOADER:{
+                Uri uri = ActivitiesContract.GoalEntry.buildGoalsActivities();
                 return new CursorLoader(getActivity(),
-                        ActivitiesContract.GoalEntry.CONTENT_URI,
-                        Constants.GOALS_PROJECTION,
+                        uri,
+                        Constants.GOALS_ACTIVITIES_PROJECTION,
                         null,
                         null,
                         null
@@ -110,9 +122,8 @@ public class GoalFragment extends Fragment implements LoaderManager.LoaderCallba
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
         switch (loader.getId()){
-            case GOAL_LOADER:{
-                mGoalsCursor = data;
-                //TODO: update UI for Goals
+            case GOAL_ACTIVITIES_LOADER:{
+                mGoalsActivitiesAdapter.swapCursor(data);
                 break;
             }
             case ACTIVITIES_LOADER:{
@@ -130,6 +141,6 @@ public class GoalFragment extends Fragment implements LoaderManager.LoaderCallba
      */
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
-
+        mGoalsActivitiesAdapter.swapCursor(null);
     }
 }
