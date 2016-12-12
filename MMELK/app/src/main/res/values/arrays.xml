@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array
+        name="feelings">
+        <item>@string/answer_energetic</item>
+        <item>@string/answer_happy</item>
+        <item>@string/answer_angry</item>
+        <item>@string/answer_apathetic</item>
+        <item>@string/answer_sad</item>
+        <item>@string/answer_content</item>
+        <item>@string/answer_tired</item>
+    </string-array>
+
+    <string-array
+        name="meals">
+        <item>@string/answer_breakfast</item>
+        <item>@string/answer_lunch</item>
+        <item>@string/answer_dinner</item>
+        <item>@string/answer_snacks</item>
+        <item>@string/answer_nothing</item>
+    </string-array>
+</resources>
