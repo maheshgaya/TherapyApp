@@ -1,19 +1,32 @@
 <resources>
+    <!-- activity labels -->
     <string name="app_name">MMELK</string>
+    <string name="activities_activity_label">Select Activity</string>
     <string name="title_activity_main">Serenity</string>
     <string name="label_goal">Goals</string>
     <string name="label_point">Points</string>
-    <string name="content_authority">com.example.kelly.mmelk.app</string>
+    <string name="action_about">About</string>
 
+    <!-- content provider -->
+    <string name="content_authority" translatable="false">com.example.kelly.mmelk.app</string>
+
+    <!-- error handling -->
     <string name="no_goals_available">No Goals yet! Tap on + to add a new goal!</string>
     <string name="no_activities_available">Seems like an error occurred! No activities to display!</string>
-
-    <string name="activities_activity_label">Select Activity</string>
     
+    <!-- frequency -->
+    <string name="freq_name">Frequency</string>
     <string name="freq_daily">Daily</string>
     <string name="freq_weekly">Weekly</string>
     <string name="freq_two_days_weekly">2 Days a Week</string>
     <string name="freq_three_days_weekly">3 Days a Week</string>
+
+    <!-- duration -->
+    <string name="duration_name">Duration</string>
+    <string name="duration_fifteen_min">15 Minutes</string>
+    <string name="duration_thirty_min">30 Minutes</string>
+    <string name="duration_one_hour">1 Hour</string>
+    <string name="duration_two_hour">2 Hours</string>
 
     <!-- drawables -->
     <string name="res_canvas" translatable="false">canvas</string>
@@ -26,4 +39,7 @@
     <string name="res_running" translatable="false">running</string>
     <string name="res_swimming" translatable="false">swimming</string>
     <string name="res_team" translatable="false">team</string>
+
+    <!-- buttons -->
+    <string name="add_goal_btn">Add to Goals</string>
 </resources>
