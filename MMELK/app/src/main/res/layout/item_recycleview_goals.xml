@@ -49,7 +49,7 @@
                     android:layout_alignParentEnd="true"
                     android:layout_marginLeft="119dp"
                     android:layout_marginStart="119dp"
-                    android:id="@+id/imageButton" />
+                    android:id="@+id/goals_context_imageButton" />
             </RelativeLayout>
             <TextView
                 android:id="@+id/goals_duration_textview"
