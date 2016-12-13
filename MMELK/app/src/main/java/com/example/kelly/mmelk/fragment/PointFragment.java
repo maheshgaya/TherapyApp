@@ -14,6 +14,7 @@ import android.widget.Button;
 
 import com.example.kelly.mmelk.R;
 import com.example.kelly.mmelk.activity.QuestionActivity;
+import com.github.mikephil.charting.charts.LineChart;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -24,7 +25,9 @@ import butterknife.ButterKnife;
 
 public class PointFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor>{
     public static final int REQUEST_QUESTION = 1;
+
     @BindView(R.id.add_question_btn)Button mAddQuestion;
+    @BindView(R.id.chart)LineChart mLineChart;
 
     public PointFragment(){
         //required default constructor
@@ -48,6 +51,7 @@ public class PointFragment extends Fragment implements LoaderManager.LoaderCallb
                 startActivityForResult(intent, REQUEST_QUESTION);
             }
         });
+
         return rootView;
     }
 

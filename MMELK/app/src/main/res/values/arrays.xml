@@ -8,13 +8,10 @@
         <item>@string/question_five</item>
         <item>@string/question_six</item>
         <item>@string/question_seven</item>
-        <item>@string/question_eight</item>
-        <item>@string/question_nine</item>
-        <item>@string/question_ten</item>
     </string-array>
 
-    <string-array
-        name="feelings">
+    <string-array name="feelings">
+        <item>@string/spinner_hint</item>
         <item>@string/answer_energetic</item>
         <item>@string/answer_happy</item>
         <item>@string/answer_angry</item>
@@ -24,12 +21,13 @@
         <item>@string/answer_tired</item>
     </string-array>
 
-    <string-array name="meals">
-        <item>@string/answer_breakfast</item>
-        <item>@string/answer_lunch</item>
-        <item>@string/answer_dinner</item>
-        <item>@string/answer_snacks</item>
-        <item>@string/answer_nothing</item>
+    <string-array name="interaction">
+        <item>@string/spinner_hint</item>
+        <item>@string/answer_inter_excited</item>
+        <item>@string/answer_inter_happy</item>
+        <item>@string/answer_inter_netural</item>
+        <item>@string/answer_inter_sad</item>
+        <item>@string/answer_inter_frustrated</item>
     </string-array>
 
     <string-array name="frequency">

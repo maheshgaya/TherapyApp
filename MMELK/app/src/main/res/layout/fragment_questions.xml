@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -11,140 +12,210 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <!-- question one -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingBottom="16dp"
             android:text="@string/question_one"
             android:textSize="16sp"
-            android:textColor="@android:color/black"
-            android:id="@+id/questionOneText" />
+            android:textColor="@android:color/black" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+        <RadioGroup
+            android:id="@+id/answer_one_radio_grp"
+            android:weightSum="2"
+            android:paddingBottom="16dp"
             android:orientation="horizontal"
-            android:padding="@dimen/fragment_padding">
-
-            <RadioGroup
-                android:id="@+id/answer_one_radio_grp"
-                android:weightSum="2"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <RadioButton
-                    android:id="@+id/answerOneYes"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/answer_yes" />
-
-                <RadioButton
-                    android:id="@+id/answerOneNo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/answer_no" />
-            </RadioGroup>
-
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/questionTenText"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:id="@+id/answer_one_yes_radio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/answer_yes" />
+
+            <RadioButton
+                android:id="@+id/answer_one_no_radio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/answer_no" />
+        </RadioGroup>
+
+
+        <!-- question two -->
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/question_ten"
+            android:paddingBottom="16dp"
+            android:text="@string/question_two"
             android:textColor="@android:color/black"
             android:textSize="16sp" />
 
-        <SeekBar
-            android:id="@+id/answerTenSeekBar"
+        <LinearLayout
+            android:orientation="horizontal"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:paddingBottom="16dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/fragment_padding"/>
+            android:layout_height="wrap_content">
 
+            <SeekBar
+                android:id="@+id/answer_two_seekbar"
+                android:layout_gravity="center"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:max="5"/>
+            <EditText
+                tools:text="5"
+                android:maxLength="1"
+                android:text="@integer/default_zero"
+                android:inputType="number"
+                android:id="@+id/answer_two_number_edittext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <!-- question three -->
         <TextView
-            android:id="@+id/questionThreeText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingBottom="16dp"
             android:textColor="@android:color/black"
             android:text="@string/question_three"
             android:textSize="16sp" />
 
-        <SeekBar
-            android:id="@+id/answerThreeSeekBar"
-            android:layout_width="match_parent"
+        <Spinner
+            android:id="@+id/answer_three_spinner"
+            android:layout_width="wrap_content"
+            android:paddingBottom="16dp"
             android:layout_height="wrap_content"
             android:padding="@dimen/fragment_padding"/>
 
+        <!-- question four -->
         <TextView
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="16dp"
+            android:text="@string/question_four"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:paddingBottom="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <SeekBar
+                android:id="@+id/answer_four_seekbar"
+                android:layout_gravity="center"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:max="5"/>
+            <EditText
+                tools:text="5"
+                android:maxLength="1"
+                android:text="@integer/default_zero"
+                android:inputType="number"
+                android:id="@+id/answer_four_number_edittext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <!-- question five -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:paddingBottom="16dp"
             android:layout_height="wrap_content"
             android:text="@string/question_five"
             android:textColor="@android:color/black"
-            android:textSize="16sp"
-            android:id="@+id/questionFiveText" />
+            android:textSize="16sp" />
 
-        <SeekBar
+        <LinearLayout
+            android:orientation="horizontal"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:paddingBottom="16dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/answerFiveSeekBar"
-            android:padding="@dimen/fragment_padding"/>
+            android:layout_height="wrap_content">
 
+            <SeekBar
+                android:id="@+id/answer_five_seekbar"
+                android:layout_gravity="center"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:max="5"/>
+            <EditText
+                tools:text="5"
+                android:maxLength="1"
+                android:text="@integer/default_zero"
+                android:inputType="number"
+                android:id="@+id/answer_five_number_edittext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <!-- question six -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/question_six"
+            android:textColor="@android:color/black"
+            android:paddingBottom="16dp"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:paddingBottom="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <SeekBar
+                android:id="@+id/answer_six_seekbar"
+                android:layout_gravity="center"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:max="5"/>
+            <EditText
+                tools:text="5"
+                android:maxLength="1"
+                android:text="@integer/default_zero"
+                android:inputType="number"
+                android:id="@+id/answer_six_number_edittext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <!-- question seven -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="16dp"
             android:text="@string/question_seven"
             android:textColor="@android:color/black"
-            android:textSize="16sp"
-            android:id="@+id/questionSevenText" />
-
-        <SeekBar
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/answerSevenSeekBar"
-            android:padding="@dimen/fragment_padding"/>
-
-        <TextView
+            android:textSize="16sp" />
+        <Spinner
+            android:id="@+id/answer_seven_spinner"
             android:layout_width="wrap_content"
+            android:paddingBottom="16dp"
             android:layout_height="wrap_content"
-            android:text="@string/question_eight"
-            android:textColor="@android:color/black"
-            android:textSize="16sp"
-            android:id="@+id/questionEightText" />
-
-        <SeekBar
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/answerEightSeekBar"
             android:padding="@dimen/fragment_padding"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/question_nine"
-            android:textColor="@android:color/black"
-            android:textSize="16sp"
-            android:id="@+id/questionNineText" />
 
-        <SeekBar
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/answerNineSeekBar"
-            android:padding="@dimen/fragment_padding"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/question_two"
-            android:textColor="@android:color/black"
-            android:textSize="16sp"
-            android:id="@+id/questionTwoText" />
-
-        <SeekBar
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/answerTwoSeekBar"
-            android:padding="@dimen/fragment_padding"/>
 
     </LinearLayout>
 
