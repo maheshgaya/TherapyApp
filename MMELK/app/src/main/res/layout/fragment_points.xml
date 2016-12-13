@@ -19,6 +19,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorAccent"
                 tools:text="2450"
+                android:text="@integer/default_zero"
                 android:textSize="42sp"
                 android:layout_gravity="center"/>
             <TextView

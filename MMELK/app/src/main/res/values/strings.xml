@@ -48,6 +48,7 @@
     <!-- error handling -->
     <string name="no_goals_available">No Goals yet! Tap on + to add a new goal!</string>
     <string name="no_activities_available">Seems like an error occurred! No activities to display!</string>
+    <string name="spinner_not_selected_error">Answer cannot be "Select One". Please select an answer from the dropdown!</string>
     
     <!-- frequency -->
     <string name="spinner_hint">Select One</string>
@@ -85,4 +86,6 @@
 
     <string name="action_edit">Edit</string>
     <string name="action_delete">Delete</string>
+
+    <string name="item_deleted">was removed!</string>
 </resources>

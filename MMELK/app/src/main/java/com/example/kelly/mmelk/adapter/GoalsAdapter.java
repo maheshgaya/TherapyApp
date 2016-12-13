@@ -2,6 +2,7 @@ package com.example.kelly.mmelk.adapter;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.net.Uri;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,12 +12,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.kelly.mmelk.Constants;
 import com.example.kelly.mmelk.R;
 import com.example.kelly.mmelk.Utilities;
+import com.example.kelly.mmelk.data.ActivitiesContract;
 import com.maheshgaya.android.common.CursorRecyclerViewAdapter;
 
+import butterknife.BindString;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -32,12 +36,14 @@ public class GoalsAdapter  extends CursorRecyclerViewAdapter<GoalsAdapter.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder viewHolder, Cursor cursor) {
-        String title = cursor.getString(Constants.COLUMN_GOALS_INNER_ACTIVITIES_NAME);
+    public void onBindViewHolder(final ViewHolder viewHolder, Cursor cursor) {
+        final long goalsId = cursor.getLong(Constants.COLUMN_GOALS_INNER_ACTIVITIES_GOAL_ID);
+        final String title = cursor.getString(Constants.COLUMN_GOALS_INNER_ACTIVITIES_NAME);
         String duration = cursor.getString(Constants.COLUMN_GOALS_INNER_ACTIVITIES_DURATION);
         String frequency = cursor.getString(Constants.COLUMN_GOALS_INNER_ACTIVITIES_FREQUENCY);
         String imageStr = cursor.getString(Constants.COLUMN_GOALS_INNER_ACTIVITIES_PICTURE);
 
+        final Context context = mContext;
         viewHolder.titleTextView.setText(title);
         viewHolder.durationTextView.setText(duration);
         viewHolder.freqTextView.setText(frequency);
@@ -55,10 +61,18 @@ public class GoalsAdapter  extends CursorRecyclerViewAdapter<GoalsAdapter.ViewHo
                         switch (item.getItemId()){
                             case R.id.action_edit:{
                                 //TODO: edit item
+                                Toast.makeText(mContext, title + "EDIT", Toast.LENGTH_SHORT).show();
                                 return true;
                             }
                             case R.id.action_delete:{
-                                //TODO: delete item
+                                context.getContentResolver().delete(
+                                        ActivitiesContract.GoalEntry.CONTENT_URI,
+                                        ActivitiesContract.GoalEntry._ID + " = ? ",
+                                        new String[]{String.valueOf(goalsId)}
+                                );
+                                Toast.makeText(context,
+                                        title + " " + viewHolder.itemDeletedStr,
+                                        Toast.LENGTH_SHORT).show();
                                 return true;
                             }
                             default:
@@ -87,6 +101,7 @@ public class GoalsAdapter  extends CursorRecyclerViewAdapter<GoalsAdapter.ViewHo
         @BindView(R.id.goals_freq_textview)TextView freqTextView;
         @BindView(R.id.goals_icon_imagebutton)ImageButton iconImageButton;
         @BindView(R.id.goals_context_imageButton)ImageButton editContextImageButton;
+        @BindString(R.string.item_deleted)String itemDeletedStr;
         public ViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
