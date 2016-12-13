@@ -90,4 +90,7 @@
     <string name="item_deleted">was removed!</string>
 
     <string name="line_description">Mood over Time</string>
+
+    <string name="fifty_earned_points">You earned 50 points!</string>
+    <string name="ten_earned_points">You earned 10 points!</string>
 </resources>

@@ -186,6 +186,7 @@ public class QuestionsFragment extends Fragment implements SeekBar.OnSeekBarChan
         getActivity().getContentResolver().insert(ActivitiesContract.PointEntry.CONTENT_URI,
                 pointValues);
         Log.d(TAG, "addToDatabase: " + pointValues.toString());
+        Toast.makeText(getContext(), getString(R.string.ten_earned_points), Toast.LENGTH_SHORT).show();
         getActivity().finish();
     }
 
