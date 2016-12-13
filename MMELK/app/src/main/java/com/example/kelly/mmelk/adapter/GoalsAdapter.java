@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.example.kelly.mmelk.Constants;
 import com.example.kelly.mmelk.R;
+import com.example.kelly.mmelk.Utilities;
 import com.maheshgaya.android.common.CursorRecyclerViewAdapter;
 
 import butterknife.BindView;
@@ -32,10 +33,12 @@ public class GoalsAdapter  extends CursorRecyclerViewAdapter<GoalsAdapter.ViewHo
         String title = cursor.getString(Constants.COLUMN_GOALS_INNER_ACTIVITIES_NAME);
         String duration = cursor.getString(Constants.COLUMN_GOALS_INNER_ACTIVITIES_DURATION);
         String frequency = cursor.getString(Constants.COLUMN_GOALS_INNER_ACTIVITIES_FREQUENCY);
+        String imageStr = cursor.getString(Constants.COLUMN_GOALS_INNER_ACTIVITIES_PICTURE);
 
         viewHolder.titleTextView.setText(title);
         viewHolder.durationTextView.setText(duration);
         viewHolder.freqTextView.setText(frequency);
+        viewHolder.iconImageButton.setImageResource(Utilities.getRes(imageStr, mContext));
     }
 
     @Override
@@ -49,6 +52,7 @@ public class GoalsAdapter  extends CursorRecyclerViewAdapter<GoalsAdapter.ViewHo
         @BindView(R.id.goals_title_textview)TextView titleTextView;
         @BindView(R.id.goals_duration_textview)TextView durationTextView;
         @BindView(R.id.goals_freq_textview)TextView freqTextView;
+        @BindView(R.id.goals_icon_imagebutton)ImageButton iconImageButton;
         public ViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);

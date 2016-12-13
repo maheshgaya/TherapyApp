@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string-array name="questions">
+        <item>@string/question_one</item>
+        <item>@string/question_two</item>
+        <item>@string/question_three</item>
+        <item>@string/question_four</item>
+        <item>@string/question_five</item>
+        <item>@string/question_six</item>
+        <item>@string/question_seven</item>
+        <item>@string/question_eight</item>
+        <item>@string/question_nine</item>
+        <item>@string/question_ten</item>
+    </string-array>
 
     <string-array
         name="feelings">

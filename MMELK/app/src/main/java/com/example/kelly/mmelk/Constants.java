@@ -40,7 +40,8 @@ public class Constants {
             ActivitiesContract.GoalEntry.COLUMN_ACTIVITIES_ID,
             ActivitiesContract.ActivityEntry.COLUMN_NAME,
             ActivitiesContract.GoalEntry.COLUMN_DURATION,
-            ActivitiesContract.GoalEntry.COLUMN_FREQUENCY
+            ActivitiesContract.GoalEntry.COLUMN_FREQUENCY,
+            ActivitiesContract.ActivityEntry.COLUMN_PICTURE
     };
 
     public static final int COLUMN_GOALS_INNER_ACTIVITIES_GOAL_ID = 0;
@@ -48,6 +49,7 @@ public class Constants {
     public static final int COLUMN_GOALS_INNER_ACTIVITIES_NAME = 2;
     public static final int COLUMN_GOALS_INNER_ACTIVITIES_DURATION = 3;
     public static final int COLUMN_GOALS_INNER_ACTIVITIES_FREQUENCY = 4;
+    public static final int COLUMN_GOALS_INNER_ACTIVITIES_PICTURE = 5;
 
     //Questions table
     public static final String[] QUESTIONS_PROJECTION = {
