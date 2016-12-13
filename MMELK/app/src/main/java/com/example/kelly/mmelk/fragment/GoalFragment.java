@@ -17,9 +17,9 @@ import android.widget.Toast;
 import com.example.kelly.mmelk.Constants;
 import com.example.kelly.mmelk.R;
 import com.example.kelly.mmelk.adapter.ActivitiesAdapter;
-import com.example.kelly.mmelk.adapter.ExpandableActivityAdapter;
+
 import com.example.kelly.mmelk.data.ActivitiesContract;
-import com.example.kelly.mmelk.data.DataProvider;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -36,14 +36,7 @@ import butterknife.ButterKnife;
 
 public class GoalFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor>{
 
-//    HashMap<String,List<String>> activities_Category;
-//    List<String> activities_List;
-//
-//
-//    ExpandableListView exp_List;
-//    ExpandableActivityAdapter adapter;
 
-//    ActivitiesAdapter adapter;
 
     private static final int GOAL_LOADER = 0;
     private static final int ACTIVITIES_LOADER = 1;
@@ -87,17 +80,7 @@ public class GoalFragment extends Fragment implements LoaderManager.LoaderCallba
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_goals, container, false);
         ButterKnife.bind(this, rootView);
-//        exp_List = (ExpandableListView) rootView.findViewById(R.id.exp_list);
-//        activities_Category = DataProvider.getInfo();
-//        activities_List = new ArrayList<String>(activities_Category.keySet());
-//        adapter = new ExpandableActivityAdapter(rootView.getContext(),activities_Category,activities_List);
-//        exp_List.setAdapter(adapter);
 
-//        //Toast.makeText(getActivity(), "this is my Toast message!!! =)", Toast.LENGTH_LONG).show();
-//           for(int i = 0; i < activities_List.size(); i++)
-//        {
-//            Toast.makeText(getActivity(), (String) activities_List.get(i), Toast.LENGTH_LONG).show();
-//        }
 
 
         return rootView;

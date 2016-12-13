@@ -27,18 +27,7 @@
             android:id="@+id/goals_recycleview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
-        <!--<ExpandableListView-->
-            <!--android:id="@+id/exp_list"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:indicatorLeft="?android:attr/expandableListPreferredItemIndicatorLeft"-->
-            <!--android:divider="?attr/colorAccent"-->
-            <!--android:dividerHeight="0.5dp"/>-->
-        <!--<LinearLayout-->
-            <!--android:id="@+id/linear_ListView"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:orientation="vertical" />-->
+
 
     </LinearLayout>
 </ScrollView>

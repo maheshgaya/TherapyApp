@@ -35,9 +35,7 @@ import butterknife.ButterKnife;
  */
 
 public class PointFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor>{
-//    Cursor questionsCursor;
-//    private String date[];
-    //@BindView(R.id.activities_recycleview)RecyclerView mRecycleView;
+
 
     public PointFragment(){
         //required default constructor
@@ -57,11 +55,7 @@ public class PointFragment extends Fragment implements LoaderManager.LoaderCallb
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_points, container, false);
         ButterKnife.bind(this, rootView);
-//        QuestionDateAdapter adapter = new QuestionDateAdapter(this,date);
-//        LinearLayoutManager linearTrailerLayoutManager = new LinearLayoutManager(getContext());
-//        linearTrailerLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-//        mRecycleView.setLayoutManager(linearTrailerLayoutManager);
-//        mRecycleView.setAdapter(adapter);
+
         return rootView;
     }
 
