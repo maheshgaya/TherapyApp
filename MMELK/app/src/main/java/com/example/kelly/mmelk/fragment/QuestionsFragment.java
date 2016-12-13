@@ -23,6 +23,7 @@ import android.widget.Toast;
 
 import com.example.kelly.mmelk.Constants;
 import com.example.kelly.mmelk.R;
+import com.example.kelly.mmelk.Utilities;
 import com.example.kelly.mmelk.data.ActivitiesContract;
 
 import java.text.DateFormat;
@@ -167,9 +168,7 @@ public class QuestionsFragment extends Fragment implements SeekBar.OnSeekBarChan
     }
 
     private void addToDatabase(SparseArray<String> answers){
-        long date = System.currentTimeMillis();
-        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
-        String currentDateTimeStr = sdf.format(date);
+        String currentDateTimeStr = Utilities.getCurrentTime();
 
         for (int i = 1; i <= answers.size(); i++){
             ContentValues values = new ContentValues();

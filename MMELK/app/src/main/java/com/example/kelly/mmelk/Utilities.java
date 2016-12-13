@@ -2,6 +2,8 @@ package com.example.kelly.mmelk;
 
 import android.content.Context;
 
+import java.text.SimpleDateFormat;
+
 /**
  * Created by Mahesh Gaya on 12/10/16.
  */
@@ -31,5 +33,11 @@ public class Utilities {
         } else {
             return R.drawable.ic_walking;
         }
+    }
+
+    public static String getCurrentTime(){
+        long date = System.currentTimeMillis();
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+        return sdf.format(date);
     }
 }

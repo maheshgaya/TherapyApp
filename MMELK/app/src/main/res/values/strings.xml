@@ -88,4 +88,6 @@
     <string name="action_delete">Delete</string>
 
     <string name="item_deleted">was removed!</string>
+
+    <string name="line_description">Mood over Time</string>
 </resources>
