@@ -1,7 +1,9 @@
 package com.example.kelly.mmelk.adapter;
 
+import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.drawable.Drawable;
@@ -22,6 +24,9 @@ import com.caverock.androidsvg.SVG;
 import com.example.kelly.mmelk.Constants;
 import com.example.kelly.mmelk.R;
 import com.example.kelly.mmelk.Utilities;
+import com.example.kelly.mmelk.activity.ActivitiesActivity;
+import com.example.kelly.mmelk.activity.ActivitiesDetailActivity;
+import com.example.kelly.mmelk.fragment.ActivitiesDetailFragment;
 import com.maheshgaya.android.common.CursorRecyclerViewAdapter;
 
 import java.io.InputStream;
@@ -39,6 +44,7 @@ public class ActivitiesAdapter extends CursorRecyclerViewAdapter<ActivitiesAdapt
     private Context mContext;
     private static ArrayList<String> headers;
     private static final String TAG = ActivitiesAdapter.class.getSimpleName();
+    public static Activity mActivity;
 
     public ActivitiesAdapter(Context context, Cursor cursor){
         super(context, cursor);
@@ -73,8 +79,12 @@ public class ActivitiesAdapter extends CursorRecyclerViewAdapter<ActivitiesAdapt
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO: open detail activity
-                Toast.makeText(mContext, activityId, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(mContext, ActivitiesDetailActivity.class);
+                intent.putExtra(ActivitiesDetailFragment.ACTIVITIES_EXTRA, activityId);
+                mContext.startActivity(intent);
+
+                mActivity = (ActivitiesActivity) mContext;
+
             }
         });
     }
