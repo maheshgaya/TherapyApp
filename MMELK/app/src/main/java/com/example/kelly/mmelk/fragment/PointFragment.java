@@ -1,16 +1,30 @@
 package com.example.kelly.mmelk.fragment;
 
+import android.content.Context;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
+import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
+import android.support.v4.widget.SimpleCursorAdapter;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import com.example.kelly.mmelk.Constants;
 import com.example.kelly.mmelk.R;
+import com.example.kelly.mmelk.adapter.ActivitiesAdapter;
+//import com.example.kelly.mmelk.adapter.QuestionDateAdapter;
+import com.example.kelly.mmelk.data.ActivitiesContract;
+import com.example.kelly.mmelk.data.ActivitiesDBHelper;
+import com.example.kelly.mmelk.data.ActivitiesProvider;
 
 import butterknife.BindString;
 import butterknife.BindView;
@@ -21,6 +35,10 @@ import butterknife.ButterKnife;
  */
 
 public class PointFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor>{
+//    Cursor questionsCursor;
+//    private String date[];
+    //@BindView(R.id.activities_recycleview)RecyclerView mRecycleView;
+
     public PointFragment(){
         //required default constructor
     }
@@ -29,6 +47,9 @@ public class PointFragment extends Fragment implements LoaderManager.LoaderCallb
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
+
+
+
     }
 
     @Nullable
@@ -36,12 +57,18 @@ public class PointFragment extends Fragment implements LoaderManager.LoaderCallb
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_points, container, false);
         ButterKnife.bind(this, rootView);
+//        QuestionDateAdapter adapter = new QuestionDateAdapter(this,date);
+//        LinearLayoutManager linearTrailerLayoutManager = new LinearLayoutManager(getContext());
+//        linearTrailerLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+//        mRecycleView.setLayoutManager(linearTrailerLayoutManager);
+//        mRecycleView.setAdapter(adapter);
         return rootView;
     }
 
 
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+
         return null;
     }
 
@@ -54,4 +81,6 @@ public class PointFragment extends Fragment implements LoaderManager.LoaderCallb
     public void onLoaderReset(Loader<Cursor> loader) {
 
     }
+
+
 }

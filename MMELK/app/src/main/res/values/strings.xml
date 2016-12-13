@@ -26,4 +26,21 @@
     <string name="res_running" translatable="false">running</string>
     <string name="res_swimming" translatable="false">swimming</string>
     <string name="res_team" translatable="false">team</string>
+
+    <string name="deep_breathing" translatable="false">Deep Breathing</string>
+    <string name="meditation" translatable="false">Meditation or prayer</string>
+    <string name="write" translatable="false">Write in a journal</string>
+    <string name="art" translatable="false">Create art</string>
+    <string name="walk" translatable="false">Walk or run</string>
+    <string name="swim" translatable="false">Swim</string>
+    <string name="pump" translatable="false">Lift weights</string>
+    <string name="yoga" translatable="false">Yoga</string>
+    <string name="sport" translatable="false">Play a sport</string>
+    <string name="call" translatable="false">Call a friend or family member</string>
+    <string name="visit" translatable="false">Visit a friend or family member</string>
+
+    <string name="relaxation" translatable="false">Relaxation</string>
+    <string name="exercise" translatable="false">Exercise</string>
+    <string name="social" translatable="false">Social</string>
+
 </resources>

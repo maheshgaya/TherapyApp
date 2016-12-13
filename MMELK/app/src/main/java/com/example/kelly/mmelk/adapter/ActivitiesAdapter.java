@@ -47,6 +47,7 @@ public class ActivitiesAdapter extends CursorRecyclerViewAdapter<ActivitiesAdapt
     }
 
 
+
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, Cursor cursor) {
         final String activityId = String.valueOf(cursor.getLong(Constants.COLUMN_ACTIVITIES_ID));

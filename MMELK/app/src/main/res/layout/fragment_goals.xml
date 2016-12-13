@@ -1,38 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:Android="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-<<<<<<< HEAD
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Goals"/>
-        <ExpandableListView
-            android:id="@+id/exp_list"
-            android:layout_height="match_parent"
-            android:layout_width="match_parent"
-            android:indicatorLeft="?android:attr/expandableListPreferredItemIndicatorLeft"
-            android:divider="?attr/colorAccent"
-            android:dividerHeight="0.5dp"
-            />
-=======
+
+
             android:id="@+id/empty_goals_recycleview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="@dimen/textview_padding"
             android:gravity="center"
             android:visibility="gone"
-            android:text="@string/no_goals_available" />
+            android:text="@string/no_goals_available"/>
         <android.support.v7.widget.RecyclerView
             android:id="@+id/goals_recycleview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
->>>>>>> origin/master
+        <!--<ExpandableListView-->
+            <!--android:id="@+id/exp_list"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:indicatorLeft="?android:attr/expandableListPreferredItemIndicatorLeft"-->
+            <!--android:divider="?attr/colorAccent"-->
+            <!--android:dividerHeight="0.5dp"/>-->
+        <!--<LinearLayout-->
+            <!--android:id="@+id/linear_ListView"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="vertical" />-->
+
     </LinearLayout>
 </ScrollView>

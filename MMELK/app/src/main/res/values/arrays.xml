@@ -6,4 +6,27 @@
         <item>@string/freq_two_days_weekly</item>
         <item>@string/freq_three_days_weekly</item>
     </array>
+    <array name="activitiyCategories">
+        <item>@string/freq_daily</item>
+        <item>@string/freq_weekly</item>
+        <item>@string/freq_two_days_weekly</item>
+        <item>@string/freq_three_days_weekly</item>
+    </array>
+    <array name="Exercise">
+        <item>@string/walk</item>
+        <item>@string/swim</item>
+        <item>@string/pump</item>
+        <item>@string/yoga</item>
+        <item>@string/sport</item>
+    </array>
+    <array name="Relaxation">
+        <item>@string/deep_breathing</item>
+        <item>@string/meditation</item>
+        <item>@string/write</item>
+        <item>@string/art</item>
+    </array>
+    <array name="Social">
+        <item>@string/call</item>
+        <item>@string/visit</item>
+    </array>
 </resources>

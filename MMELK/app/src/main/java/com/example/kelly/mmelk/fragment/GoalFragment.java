@@ -10,34 +10,48 @@ import android.support.v4.content.Loader;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
+import android.widget.Toast;
 
 import com.example.kelly.mmelk.Constants;
 import com.example.kelly.mmelk.R;
+import com.example.kelly.mmelk.adapter.ActivitiesAdapter;
+import com.example.kelly.mmelk.adapter.ExpandableActivityAdapter;
 import com.example.kelly.mmelk.data.ActivitiesContract;
+import com.example.kelly.mmelk.data.DataProvider;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
+
+
 
 /**
  * Created by Mahesh Gaya on 12/2/16.
  */
 
 public class GoalFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor>{
-<<<<<<< HEAD
-    HashMap<String,List<String>> Activities_category;
-    List<String> Activities_list;
-    ExpandableListView Exp_list;
-=======
+
+//    HashMap<String,List<String>> activities_Category;
+//    List<String> activities_List;
+//
+//
+//    ExpandableListView exp_List;
+//    ExpandableActivityAdapter adapter;
+
+//    ActivitiesAdapter adapter;
+
     private static final int GOAL_LOADER = 0;
     private static final int ACTIVITIES_LOADER = 1;
 
     private Cursor mGoalsCursor;
     private Cursor mActivitiesCursor;
 
->>>>>>> origin/master
+
     public GoalFragment(){
         //required default constructor
     }
@@ -53,6 +67,7 @@ public class GoalFragment extends Fragment implements LoaderManager.LoaderCallba
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
+
     }
 
     @Override
@@ -72,7 +87,18 @@ public class GoalFragment extends Fragment implements LoaderManager.LoaderCallba
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_goals, container, false);
         ButterKnife.bind(this, rootView);
-        //ExpandableListView expandable = new ExpandableListView(rootView.getContext(),)
+//        exp_List = (ExpandableListView) rootView.findViewById(R.id.exp_list);
+//        activities_Category = DataProvider.getInfo();
+//        activities_List = new ArrayList<String>(activities_Category.keySet());
+//        adapter = new ExpandableActivityAdapter(rootView.getContext(),activities_Category,activities_List);
+//        exp_List.setAdapter(adapter);
+
+//        //Toast.makeText(getActivity(), "this is my Toast message!!! =)", Toast.LENGTH_LONG).show();
+//           for(int i = 0; i < activities_List.size(); i++)
+//        {
+//            Toast.makeText(getActivity(), (String) activities_List.get(i), Toast.LENGTH_LONG).show();
+//        }
+
 
         return rootView;
     }
@@ -131,6 +157,7 @@ public class GoalFragment extends Fragment implements LoaderManager.LoaderCallba
                 mActivitiesCursor = data;
                 //TODO: TASK ASSIGNMENT: @LHITO - update UI for Activities
                 //You should initialize the ListView in onCreate() method and then use it here
+
             }
         }
     }
