@@ -6,6 +6,7 @@ import android.content.ContentValues;
 import android.content.UriMatcher;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 import android.support.annotation.Nullable;
 
@@ -24,6 +25,7 @@ public class ActivitiesProvider extends ContentProvider {
 
     private static final int GOALS = 200;
     private static final int GOALS_WITH_ID = 201;
+    private static final int GOALS_WITH_ACTIVITIES = 202;
 
     private static final int QUESTIONS = 300;
     private static final int QUESTIONS_WITH_ID = 301;
@@ -33,6 +35,33 @@ public class ActivitiesProvider extends ContentProvider {
 
     private static final int POINTS = 500;
     private static final int POINTS_WITH_ID = 501;
+
+    private static final SQLiteQueryBuilder sGoalsActivities;
+
+    //INNER JOIN with goals and activities
+    static {
+        sGoalsActivities = new SQLiteQueryBuilder();
+        sGoalsActivities.setTables(
+                ActivitiesContract.GoalEntry.TABLE_NAME + " INNER JOIN " +
+                        ActivitiesContract.ActivityEntry.TABLE_NAME +
+                        " ON " + ActivitiesContract.GoalEntry.TABLE_NAME +
+                        "." + ActivitiesContract.GoalEntry.COLUMN_ACTIVITIES_ID +
+                        " = " + ActivitiesContract.ActivityEntry.TABLE_NAME +
+                        "." + ActivitiesContract.ActivityEntry._ID
+        );
+    }
+
+    private Cursor getGoalsActivities(String[] projection, String sortOrder){
+        return sGoalsActivities.query(
+                mOpenDbHelper.getReadableDatabase(),
+                projection,
+                null,
+                null,
+                null,
+                null,
+                sortOrder
+        );
+    };
 
     /**
      * build the different uris
@@ -52,6 +81,9 @@ public class ActivitiesProvider extends ContentProvider {
         matcher.addURI(authority, ActivitiesContract.GoalEntry.TABLE_NAME, GOALS);
         //content://authority/goals/#
         matcher.addURI(authority, ActivitiesContract.GoalEntry.TABLE_NAME + "/#", GOALS_WITH_ID);
+        //content://authority/goals/activities
+        matcher.addURI(authority, ActivitiesContract.GoalEntry.TABLE_NAME + "/" +
+                ActivitiesContract.ActivityEntry.TABLE_NAME, GOALS_WITH_ACTIVITIES);
 
         //content://authority/questions
         matcher.addURI(authority, ActivitiesContract.QuestionEntry.TABLE_NAME, QUESTIONS);
@@ -141,6 +173,10 @@ public class ActivitiesProvider extends ContentProvider {
                         null,
                         sortOrder
                 );
+                break;
+            }
+            case GOALS_WITH_ACTIVITIES:{
+                retCursor = getGoalsActivities(projection, sortOrder);
                 break;
             }
             case QUESTIONS:{
@@ -246,6 +282,9 @@ public class ActivitiesProvider extends ContentProvider {
             }
             case GOALS_WITH_ID:{
                 return ActivitiesContract.GoalEntry.CONTENT_ITEM_TYPE;
+            }
+            case GOALS_WITH_ACTIVITIES:{
+                return ActivitiesContract.GoalEntry.CONTENT_TYPE;
             }
             case QUESTIONS: {
                 return ActivitiesContract.QuestionEntry.CONTENT_TYPE;

@@ -29,7 +29,8 @@
 
         <!-- Activities Detail activity -->
         <activity android:name=".activity.ActivitiesDetailActivity"
-            android:parentActivityName=".activity.MainActivity">
+            android:parentActivityName=".activity.ActivitiesActivity"
+            android:label="@string/activities_detail_label">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activity.ActivitiesActivity" />

@@ -34,6 +34,23 @@ public class Constants {
     public static final int COLUMN_ACTIVITIES_CATEGORY = 2;
     public static final int COLUMN_ACTIVITIES_PICTURE = 3;
 
+    //Goals Activities table
+    public static final String[] GOALS_ACTIVITIES_PROJECTION = {
+            ActivitiesContract.GoalEntry.TABLE_NAME + "." + ActivitiesContract.GoalEntry._ID,
+            ActivitiesContract.GoalEntry.COLUMN_ACTIVITIES_ID,
+            ActivitiesContract.ActivityEntry.COLUMN_NAME,
+            ActivitiesContract.GoalEntry.COLUMN_DURATION,
+            ActivitiesContract.GoalEntry.COLUMN_FREQUENCY,
+            ActivitiesContract.ActivityEntry.COLUMN_PICTURE
+    };
+
+    public static final int COLUMN_GOALS_INNER_ACTIVITIES_GOAL_ID = 0;
+    public static final int COLUMN_GOALS_INNER_ACTIVITIES_ACT_ID = 1;
+    public static final int COLUMN_GOALS_INNER_ACTIVITIES_NAME = 2;
+    public static final int COLUMN_GOALS_INNER_ACTIVITIES_DURATION = 3;
+    public static final int COLUMN_GOALS_INNER_ACTIVITIES_FREQUENCY = 4;
+    public static final int COLUMN_GOALS_INNER_ACTIVITIES_PICTURE = 5;
+
     //Questions table
     public static final String[] QUESTIONS_PROJECTION = {
             ActivitiesContract.QuestionEntry._ID,
