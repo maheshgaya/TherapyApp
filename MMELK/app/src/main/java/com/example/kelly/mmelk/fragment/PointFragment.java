@@ -1,5 +1,6 @@
 package com.example.kelly.mmelk.fragment;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,10 +10,11 @@ import android.support.v4.content.Loader;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.kelly.mmelk.R;
+import com.example.kelly.mmelk.activity.QuestionActivity;
 
-import butterknife.BindString;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -21,6 +23,9 @@ import butterknife.ButterKnife;
  */
 
 public class PointFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor>{
+    public static final int REQUEST_QUESTION = 1;
+    @BindView(R.id.add_question_btn)Button mAddQuestion;
+
     public PointFragment(){
         //required default constructor
     }
@@ -36,6 +41,13 @@ public class PointFragment extends Fragment implements LoaderManager.LoaderCallb
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_points, container, false);
         ButterKnife.bind(this, rootView);
+        mAddQuestion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), QuestionActivity.class);
+                startActivityForResult(intent, REQUEST_QUESTION);
+            }
+        });
         return rootView;
     }
 

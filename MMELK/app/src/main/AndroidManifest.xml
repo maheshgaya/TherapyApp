@@ -20,7 +20,7 @@
 
         <!-- Activities activity -->
         <activity android:name=".activity.ActivitiesActivity"
-            android:label="@string/activities_activity_label"
+            android:label="@string/label_activities_activity"
             android:parentActivityName=".activity.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -36,6 +36,14 @@
                 android:value=".activity.ActivitiesActivity" />
         </activity>
 
+        <!-- Question activity -->
+        <activity android:name=".activity.QuestionActivity"
+            android:parentActivityName=".activity.MainActivity"
+            android:label="@string/label_question">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.MainActivity" />
+        </activity>
         <!-- upload data into database from the JSON file-->
         <service android:name=".data.DataService"/>
         <!-- queries the SQLite database -->
