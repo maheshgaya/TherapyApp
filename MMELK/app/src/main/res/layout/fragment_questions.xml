@@ -15,7 +15,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/question_one"
-            android:textSize="25sp"
+            android:textSize="16sp"
+            android:textColor="@android:color/black"
             android:id="@+id/questionOneText" />
 
         <LinearLayout
@@ -52,7 +53,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/question_ten"
-            android:textSize="25sp" />
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
 
         <SeekBar
             android:id="@+id/answerTenSeekBar"
@@ -64,8 +66,9 @@
             android:id="@+id/questionThreeText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
             android:text="@string/question_three"
-            android:textSize="25sp" />
+            android:textSize="16sp" />
 
         <SeekBar
             android:id="@+id/answerThreeSeekBar"
@@ -77,7 +80,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/question_five"
-            android:textSize="25sp"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
             android:id="@+id/questionFiveText" />
 
         <SeekBar
@@ -90,7 +94,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/question_seven"
-            android:textSize="25sp"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
             android:id="@+id/questionSevenText" />
 
         <SeekBar
@@ -103,7 +108,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/question_eight"
-            android:textSize="25sp"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
             android:id="@+id/questionEightText" />
 
         <SeekBar
@@ -116,7 +122,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/question_nine"
-            android:textSize="25sp"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
             android:id="@+id/questionNineText" />
 
         <SeekBar
@@ -129,7 +136,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/question_two"
-            android:textSize="25sp"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
             android:id="@+id/questionTwoText" />
 
         <SeekBar
