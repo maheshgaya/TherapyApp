@@ -2,7 +2,6 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:padding="16dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <LinearLayout
@@ -12,6 +11,7 @@
         <LinearLayout
             android:orientation="vertical"
             android:padding="32dp"
+            android:background="@color/colorBackground"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
@@ -29,21 +29,26 @@
                 android:text="@string/points"
                 android:layout_gravity="center"/>
         </LinearLayout>
-
-        <com.github.mikephil.charting.charts.LineChart
-            android:id="@+id/chart"
-            android:paddingTop="16dp"
-            android:paddingBottom="16dp"
+        <LinearLayout
+            android:padding="16dp"
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="180dp" />
+            android:layout_height="wrap_content">
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/chart"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="180dp" />
 
-        <Button
-            android:id="@+id/add_question_btn"
-            android:background="@color/colorAccent"
-            android:textColor="@android:color/white"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/add_mood_btn"/>
+            <Button
+                android:id="@+id/add_question_btn"
+                android:background="@color/colorAccent"
+                android:textColor="@android:color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/add_mood_btn"/>
+        </LinearLayout>
     </LinearLayout>
 
 </ScrollView>

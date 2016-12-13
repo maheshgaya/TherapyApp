@@ -93,4 +93,5 @@
 
     <string name="fifty_earned_points">You earned 50 points!</string>
     <string name="ten_earned_points">You earned 10 points!</string>
+    <string name="weekly_mood">Weekly Mood</string>
 </resources>

@@ -59,11 +59,6 @@ public class GoalsAdapter  extends CursorRecyclerViewAdapter<GoalsAdapter.ViewHo
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
                         switch (item.getItemId()){
-                            case R.id.action_edit:{
-                                //TODO: edit item
-                                Toast.makeText(mContext, title + "EDIT", Toast.LENGTH_SHORT).show();
-                                return true;
-                            }
                             case R.id.action_delete:{
                                 context.getContentResolver().delete(
                                         ActivitiesContract.GoalEntry.CONTENT_URI,

@@ -181,7 +181,7 @@ public class PointFragment extends Fragment implements LoaderManager.LoaderCallb
                     i++;
                 }
 
-                LineDataSet dataSet = new LineDataSet(moodEntries, "Moods");
+                LineDataSet dataSet = new LineDataSet(moodEntries, getString(R.string.weekly_mood));
                 //Customization
                 //disable value text for each point
                 dataSet.setDrawValues(false);
