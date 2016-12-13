@@ -1,10 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <array name="frequency">
+    <string-array name="questions">
+        <item>@string/question_one</item>
+        <item>@string/question_two</item>
+        <item>@string/question_three</item>
+        <item>@string/question_four</item>
+        <item>@string/question_five</item>
+        <item>@string/question_six</item>
+        <item>@string/question_seven</item>
+    </string-array>
+
+    <string-array name="feelings">
+        <item>@string/spinner_hint</item>
+        <item>@string/answer_energetic</item>
+        <item>@string/answer_happy</item>
+        <item>@string/answer_angry</item>
+        <item>@string/answer_apathetic</item>
+        <item>@string/answer_sad</item>
+        <item>@string/answer_content</item>
+        <item>@string/answer_tired</item>
+    </string-array>
+
+    <string-array name="interaction">
+        <item>@string/spinner_hint</item>
+        <item>@string/answer_inter_excited</item>
+        <item>@string/answer_inter_happy</item>
+        <item>@string/answer_inter_netural</item>
+        <item>@string/answer_inter_sad</item>
+        <item>@string/answer_inter_frustrated</item>
+    </string-array>
+
+    <string-array name="frequency">
+        <item>@string/spinner_hint</item>
         <item>@string/freq_daily</item>
         <item>@string/freq_weekly</item>
         <item>@string/freq_two_days_weekly</item>
         <item>@string/freq_three_days_weekly</item>
+<<<<<<< HEAD
     </array>
     <array name="activitiyCategories">
         <item>@string/freq_daily</item>
@@ -12,4 +44,15 @@
         <item>@string/freq_two_days_weekly</item>
         <item>@string/freq_three_days_weekly</item>
     </array>
+=======
+    </string-array>
+
+    <string-array name="duration">
+        <item>@string/spinner_hint</item>
+        <item>@string/duration_fifteen_min</item>
+        <item>@string/duration_thirty_min</item>
+        <item>@string/duration_one_hour</item>
+        <item>@string/duration_two_hour</item>
+    </string-array>
+>>>>>>> refs/remotes/kharts227/master
 </resources>

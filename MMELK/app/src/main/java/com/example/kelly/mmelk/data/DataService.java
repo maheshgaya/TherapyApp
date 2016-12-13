@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.util.Log;
 
 import com.example.kelly.mmelk.Constants;
+import com.example.kelly.mmelk.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -24,6 +25,7 @@ import java.io.InputStream;
  * Loads the data from json files into the database
  */
 public class DataService extends IntentService {
+    String[] mQuestionArray;
     private static final String TAG = DataService.class.getSimpleName();
 
     public DataService(){
@@ -32,6 +34,13 @@ public class DataService extends IntentService {
     @Override
     protected void onHandleIntent(Intent intent) {
         uploadJsonFile();
+
+        //get questions from string array resources and add to database
+        mQuestionArray = this.getResources().getStringArray(R.array.questions);
+        for (int i = 0; i < mQuestionArray.length; i++){
+            addQuestion(mQuestionArray[i]);
+        }
+
     }
     /**
      * read activities from activities.json
@@ -121,5 +130,42 @@ public class DataService extends IntentService {
         return activityId;
     }
 
+    /**
+     * Add questions to database
+     * @param question
+     * @return
+     */
+    private long addQuestion(String question){
+        long questionId;
+        Cursor questionCursor = this.getContentResolver().query(
+                ActivitiesContract.QuestionEntry.CONTENT_URI,
+                Constants.QUESTIONS_PROJECTION,
+                ActivitiesContract.QuestionEntry.COLUMN_QUESTION + " = ? ",
+                new String[]{question},
+                null,
+                null
+        );
+
+        try {
+            if (questionCursor.moveToFirst()){
+                int questionIndex = questionCursor.getColumnIndex(ActivitiesContract.GoalEntry._ID);
+                questionId = questionCursor.getLong(questionIndex);
+            } else {
+                ContentValues questionValues = new ContentValues();
+                questionValues.put(ActivitiesContract.QuestionEntry.COLUMN_QUESTION, question);
+
+                Uri insertUri = this.getContentResolver().insert(
+                        ActivitiesContract.QuestionEntry.CONTENT_URI,
+                        questionValues
+                );
+                Log.d(TAG, "addQuestion: " + insertUri.toString());
+                questionId = ContentUris.parseId(insertUri);
+
+            }
+        } finally {
+            questionCursor.close();
+        }
+        return questionId;
+    }
 
 }
