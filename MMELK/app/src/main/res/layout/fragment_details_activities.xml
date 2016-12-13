@@ -65,7 +65,7 @@
         <Button
             android:id="@+id/activities_details_add_goal_button"
             android:text="@string/add_goal_btn"
-            android:textSize="24sp"
+            android:textSize="16sp"
             android:textColor="@android:color/white"
             android:background="@drawable/button_style"
             android:paddingTop="@dimen/textview_padding"
