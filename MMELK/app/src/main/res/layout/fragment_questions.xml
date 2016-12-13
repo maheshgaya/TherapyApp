@@ -15,7 +15,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/question_one"
-            android:textSize="25sp" />
+            android:textSize="25sp"
+            android:id="@+id/questionOneText" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -25,14 +26,14 @@
             android:padding="@dimen/fragment_padding">
 
             <RadioButton
-                android:id="@+id/radioButton2"
+                android:id="@+id/answerOneYes"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/answer_yes" />
 
             <RadioButton
-                android:id="@+id/radioButton"
+                android:id="@+id/answerOneNo"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -40,27 +41,27 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/questionTenText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/question_ten"
             android:textSize="25sp" />
 
         <SeekBar
-            android:id="@+id/seekBar2"
+            android:id="@+id/answerTenSeekBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="@dimen/fragment_padding"/>
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/questionThreeText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/question_three"
             android:textSize="25sp" />
 
         <SeekBar
-            android:id="@+id/seekBar3"
+            android:id="@+id/answerThreeSeekBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="@dimen/fragment_padding"/>
@@ -69,60 +70,65 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/question_five"
-            android:textSize="25sp" />
+            android:textSize="25sp"
+            android:id="@+id/questionFiveText" />
 
         <SeekBar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/seekBar"
+            android:id="@+id/answerFiveSeekBar"
             android:padding="@dimen/fragment_padding"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/question_seven"
-            android:textSize="25sp" />
+            android:textSize="25sp"
+            android:id="@+id/questionSevenText" />
 
         <SeekBar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/seekBar4"
+            android:id="@+id/answerSevenSeekBar"
             android:padding="@dimen/fragment_padding"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/question_eight"
-            android:textSize="25sp" />
+            android:textSize="25sp"
+            android:id="@+id/questionEightText" />
 
         <SeekBar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/seekBar5"
+            android:id="@+id/answerEightSeekBar"
             android:padding="@dimen/fragment_padding"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/question_nine"
-            android:textSize="25sp" />
+            android:textSize="25sp"
+            android:id="@+id/questionNineText" />
 
         <SeekBar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/seekBar6"
+            android:id="@+id/answerNineSeekBar"
             android:padding="@dimen/fragment_padding"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/question_two"
-            android:textSize="25sp" />
+            android:textSize="25sp"
+            android:id="@+id/questionTwoText" />
 
         <SeekBar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/seekBar7"
+            android:id="@+id/answerTwoSeekBar"
             android:padding="@dimen/fragment_padding"/>
 
     </LinearLayout>
