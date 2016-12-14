@@ -34,8 +34,10 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:25.0.1'
     compile 'com.android.support:support-v4:25.0.1'
     compile 'com.github.PhilJay:MPAndroidChart:v3.0.1'
+    compile 'com.firebaseui:firebase-ui-auth:1.0.1'
     testCompile 'junit:junit:4.12'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
     compile 'com.caverock:androidsvg:1.2.1'
     compile project(':common')
 }
+apply plugin: 'com.google.gms.google-services'

@@ -20,6 +20,7 @@ import android.widget.Toast;
 import com.example.kelly.mmelk.Constants;
 import com.example.kelly.mmelk.R;
 import com.example.kelly.mmelk.Utilities;
+import com.example.kelly.mmelk.activity.MainActivity;
 import com.example.kelly.mmelk.activity.QuestionActivity;
 import com.example.kelly.mmelk.data.ActivitiesContract;
 import com.example.kelly.mmelk.data.AxisFormatter;
@@ -89,6 +90,8 @@ public class PointFragment extends Fragment implements LoaderManager.LoaderCallb
 
         return rootView;
     }
+
+
 
 
     @Override
