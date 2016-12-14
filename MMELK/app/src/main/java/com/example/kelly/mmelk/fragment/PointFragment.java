@@ -135,8 +135,6 @@ public class PointFragment extends Fragment implements LoaderManager.LoaderCallb
 
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-
-
         switch (id){
             case  POINTS_LOADER: {
                 return new CursorLoader(getActivity(),
@@ -200,14 +198,16 @@ public class PointFragment extends Fragment implements LoaderManager.LoaderCallb
                     moods.put(data.getString(Constants.COLUMN_ANSWERS_DATE),
                             data.getString(Constants.COLUMN_ANSWERS_ANSWER));
 
-                    final String[] mood_dates = new String[moods.keySet().size()];
+                    // Assignment: add a listview for dates
+                    // @author Lhito
+                    String[] mood_dates = new String[moods.keySet().size()];
                     for(int i = 0; i < moods.keySet().size(); i++)
                     {
                         mood_dates[i] = (String) moods.keySet().toArray()[i];
                     }
                     Arrays.sort(mood_dates);
                     ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),android.R.layout.simple_list_item_1,mood_dates);
-                    final ListView listview = (ListView) getView().findViewById(android.R.id.list);
+                    ListView listview = (ListView) getView().findViewById(android.R.id.list);
                     listview.setAdapter(adapter);
 
 
@@ -270,7 +270,6 @@ public class PointFragment extends Fragment implements LoaderManager.LoaderCallb
                 Description description = mLineChart.getDescription();
                 description.setText(getString(R.string.line_description));
                 mLineChart.invalidate(); // refresh
-
                 break;
             }
         }

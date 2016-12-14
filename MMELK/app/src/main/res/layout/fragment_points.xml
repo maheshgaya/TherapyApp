@@ -29,11 +29,13 @@
                 android:text="@string/points"
                 android:layout_gravity="center"/>
         </LinearLayout>
+
         <LinearLayout
             android:padding="16dp"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <com.github.mikephil.charting.charts.LineChart
                 android:id="@+id/chart"
                 android:paddingTop="16dp"
@@ -41,16 +43,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="180dp" />
 
-
-        
-        <ListView
-            android:id="@android:id/list"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"></ListView>
-
-            
-
-
+            <ListView
+                android:id="@android:id/list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
             <Button
                 android:id="@+id/add_question_btn"
                 android:background="@color/colorAccent"
