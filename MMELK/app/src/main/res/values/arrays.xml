@@ -38,14 +38,6 @@
         <item>@string/freq_three_days_weekly</item>
 
     </string-array>
-    <array name="activitiyCategories">
-        <item>@string/freq_daily</item>
-        <item>@string/freq_weekly</item>
-        <item>@string/freq_two_days_weekly</item>
-        <item>@string/freq_three_days_weekly</item>
-    </array>
-
-
 
     <string-array name="duration">
         <item>@string/spinner_hint</item>
