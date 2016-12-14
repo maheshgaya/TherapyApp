@@ -46,14 +46,22 @@ public class ActivitiesAdapter extends CursorRecyclerViewAdapter<ActivitiesAdapt
     private static final String TAG = ActivitiesAdapter.class.getSimpleName();
     public static Activity mActivity;
 
+    /**
+     * constructor
+     * @param context
+     * @param cursor
+     */
     public ActivitiesAdapter(Context context, Cursor cursor){
         super(context, cursor);
         mContext = context;
         headers = new ArrayList<String>(){};
     }
 
-
-
+    /**
+     * set data to UI
+     * @param viewHolder
+     * @param cursor
+     */
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, Cursor cursor) {
         final String activityId = String.valueOf(cursor.getLong(Constants.COLUMN_ACTIVITIES_ID));
@@ -90,6 +98,12 @@ public class ActivitiesAdapter extends CursorRecyclerViewAdapter<ActivitiesAdapt
         });
     }
 
+    /**
+     * initializes the view
+     * @param parent
+     * @param viewType
+     * @return
+     */
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
@@ -97,6 +111,9 @@ public class ActivitiesAdapter extends CursorRecyclerViewAdapter<ActivitiesAdapt
         return new ViewHolder(itemView);
     }
 
+    /**
+     * template for activities item
+     */
     public static class ViewHolder extends RecyclerView.ViewHolder{
         @BindView(R.id.activities_name_textview)TextView activitiesNameTextView;
         @BindView(R.id.activities_header_textview)TextView headerTextView;

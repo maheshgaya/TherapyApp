@@ -85,19 +85,20 @@
 
     <string name="points">POINTS</string>
 
+    <!-- menu actions -->
     <string name="action_edit">Edit</string>
     <string name="action_delete">Delete</string>
     <string name="action_sign_out">Sign out</string>
 
     <string name="item_deleted">was removed!</string>
 
+    <!-- for moods and chart -->
     <string name="line_description">Mood over Time</string>
-
-
     <string name="fifty_earned_points">You earned 50 points!</string>
     <string name="ten_earned_points">You earned 10 points!</string>
     <string name="weekly_mood">Weekly Mood</string>
 
+    <!-- Authentication messages ->
     <string name="welcome_message">Welcome</string>
     <string name="goodbye_message">Goodbye!</string>
 

@@ -9,6 +9,12 @@ import java.text.SimpleDateFormat;
  */
 
 public class Utilities {
+    /**
+     * gets the SVG image resources
+     * @param imageStr
+     * @param context
+     * @return
+     */
     public static int getRes(String imageStr, Context context){
         if (imageStr.equals(context.getString(R.string.res_canvas))){
             return R.drawable.canvas;
@@ -35,6 +41,10 @@ public class Utilities {
         }
     }
 
+    /**
+     * gets the current time in MM/dd/yyyy
+     * @return
+     */
     public static String getCurrentTime(){
         long date = System.currentTimeMillis();
         SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");

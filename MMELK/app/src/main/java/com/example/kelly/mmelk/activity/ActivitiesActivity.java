@@ -18,6 +18,10 @@ import butterknife.ButterKnife;
 public class ActivitiesActivity extends AppCompatActivity {
     @BindView(R.id.toolbar) Toolbar mToolbar; //toolbar
 
+    /**
+     * setups the toolbar
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

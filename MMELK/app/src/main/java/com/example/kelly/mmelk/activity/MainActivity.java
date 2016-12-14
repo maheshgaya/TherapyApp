@@ -59,6 +59,11 @@ public class MainActivity extends AppCompatActivity {
     private static final int ACTIVITIES_REQUEST_CODE = 101;
     public static final int RC_SIGN_IN = 1;
 
+    /**
+     * check if user is signed in. If not, redirect user to Sign-in Activity
+     * Also initializes the viewpagers
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -135,11 +140,21 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    /**
+     * show Snackbar
+     * @param message
+     */
     public void showSnackBar(String message) {
         Snackbar.make(mCoordinatorLayout, message, Snackbar.LENGTH_LONG).show();
 
     }
 
+    /**
+     * show Snackbar
+     * @param message
+     * @param category
+     */
     public void showSnackBar(String message, int category){
         String prefixMessage = "";
         if (category == WELCOME){
@@ -173,6 +188,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * if database is empty, it adds data into it
+     */
     private void initializeDatabase(){
         Cursor activitiesCursor = this.getContentResolver().query(
                 ActivitiesContract.ActivityEntry.CONTENT_URI,
@@ -205,12 +223,18 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    /**
+     * add listener to mFirebaseAuth
+     */
     @Override
     protected void onResume() {
         super.onResume();
         mFirebaseAuth.addAuthStateListener(mAuthStateListener);
     }
 
+    /**
+     * remove listener from mFirebaseAuth
+     */
     @Override
     protected void onPause() {
         super.onPause();
@@ -226,7 +250,6 @@ public class MainActivity extends AppCompatActivity {
      * if action_settings pressed
      *      then open settings activity
      */
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -245,6 +268,12 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * check if user is signed in or the user canceled the sign in
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == RC_SIGN_IN){

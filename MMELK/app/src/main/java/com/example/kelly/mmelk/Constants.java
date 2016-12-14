@@ -13,6 +13,7 @@ import java.util.HashMap;
  */
 
 public class Constants {
+    //for json
     public static final String DATA_ACTIVITIES_JSON = "activities.json";
     public static final String DATA_ACTIVITIES_ARRAY = "activities";
     public static final String DATA_ACTIVITIES_NAME = "name";

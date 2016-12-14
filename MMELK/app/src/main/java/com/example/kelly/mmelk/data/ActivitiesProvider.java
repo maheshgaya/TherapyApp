@@ -374,6 +374,13 @@ public class ActivitiesProvider extends ContentProvider {
         return returnUri;
     }
 
+    /**
+     * delete data from database
+     * @param uri
+     * @param selection
+     * @param selectionArgs
+     * @return
+     */
     @Override
     public int delete(Uri uri, String selection, String[] selectionArgs) {
         final SQLiteDatabase db = mOpenDbHelper.getWritableDatabase();
@@ -426,6 +433,14 @@ public class ActivitiesProvider extends ContentProvider {
 
     }
 
+    /**
+     * update data from database
+     * @param uri
+     * @param contentValues
+     * @param selection
+     * @param selectionArgs
+     * @return
+     */
     @Override
     public int update(Uri uri, ContentValues contentValues, String selection, String[] selectionArgs) {
         final SQLiteDatabase db = mOpenDbHelper.getWritableDatabase();

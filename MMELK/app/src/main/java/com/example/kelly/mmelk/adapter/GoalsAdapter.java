@@ -30,11 +30,22 @@ import butterknife.ButterKnife;
 
 public class GoalsAdapter  extends CursorRecyclerViewAdapter<GoalsAdapter.ViewHolder> {
     private Context mContext;
+
+    /**
+     * constructor
+     * @param context
+     * @param cursor
+     */
     public GoalsAdapter(Context context, Cursor cursor) {
         super(context, cursor);
         mContext = context;
     }
 
+    /**
+     * set data to the views
+     * @param viewHolder
+     * @param cursor
+     */
     @Override
     public void onBindViewHolder(final ViewHolder viewHolder, Cursor cursor) {
         final long goalsId = cursor.getLong(Constants.COLUMN_GOALS_INNER_ACTIVITIES_GOAL_ID);
@@ -80,9 +91,12 @@ public class GoalsAdapter  extends CursorRecyclerViewAdapter<GoalsAdapter.ViewHo
 
     }
 
-
-
-
+    /**
+     * initialize the views
+     * @param parent
+     * @param viewType
+     * @return
+     */
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
@@ -90,6 +104,9 @@ public class GoalsAdapter  extends CursorRecyclerViewAdapter<GoalsAdapter.ViewHo
         return new ViewHolder(itemView);
     }
 
+    /**
+     * template for goals item
+     */
     public static class ViewHolder extends RecyclerView.ViewHolder{
         @BindView(R.id.goals_title_textview)TextView titleTextView;
         @BindView(R.id.goals_duration_textview)TextView durationTextView;

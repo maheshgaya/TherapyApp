@@ -63,6 +63,11 @@ public class QuestionsFragment extends Fragment implements SeekBar.OnSeekBarChan
 
     }
 
+    /**
+     * set retain instance true
+     * and hasOptionsMenu to true
+     * @param savedInstanceState
+     */
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,6 +75,13 @@ public class QuestionsFragment extends Fragment implements SeekBar.OnSeekBarChan
         setHasOptionsMenu(true);
     }
 
+    /**
+     * create the views and configures them
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -77,7 +89,7 @@ public class QuestionsFragment extends Fragment implements SeekBar.OnSeekBarChan
         View rootView = inflater.inflate(R.layout.fragment_questions, container, false);
         ButterKnife.bind(this, rootView);
 
-        populateSpinners();
+        populateSpinners(); //populate the spinners from String resources array
         disableEditText(); //disables the edittexts
         addListenersToSeekBars(); //adds listeners to seekBars
 
@@ -87,6 +99,9 @@ public class QuestionsFragment extends Fragment implements SeekBar.OnSeekBarChan
         return rootView;
     }
 
+    /**
+     * Populates the spinners
+     */
     private void populateSpinners(){
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> answerThreeAdapter = ArrayAdapter.createFromResource(getActivity(),
@@ -106,6 +121,9 @@ public class QuestionsFragment extends Fragment implements SeekBar.OnSeekBarChan
         mAnswerSevenSpinner.setAdapter(answerSevenAdapter);
     }
 
+    /**
+     * Disables the editText
+     */
     private void disableEditText(){
         mAnswerTwoEditText.setEnabled(false);
         mAnswerFourEditText.setEnabled(false);
@@ -113,6 +131,9 @@ public class QuestionsFragment extends Fragment implements SeekBar.OnSeekBarChan
         mAnswerSixEditText.setEnabled(false);
     }
 
+    /**
+     * adds listeners to the seekbars
+     */
     private void addListenersToSeekBars(){
         //add listeners to seekbars
         mAnswerTwoSeekbar.setOnSeekBarChangeListener(this);
@@ -120,6 +141,10 @@ public class QuestionsFragment extends Fragment implements SeekBar.OnSeekBarChan
         mAnswerFiveSeekbar.setOnSeekBarChangeListener(this);
         mAnswerSixSeekbar.setOnSeekBarChangeListener(this);
     }
+
+    /**
+     * checks the data before saving it to database
+     */
     private void saveToDatabase(){
         SparseArray<String> answers = new SparseArray<String>();
 
@@ -167,9 +192,14 @@ public class QuestionsFragment extends Fragment implements SeekBar.OnSeekBarChan
 
     }
 
+    /**
+     * Once checked, it goes ahead and add data to database
+     * @param answers
+     */
     private void addToDatabase(SparseArray<String> answers){
         String currentDateTimeStr = Utilities.getCurrentTime();
 
+        //adds Answers to database
         for (int i = 1; i <= answers.size(); i++){
             ContentValues values = new ContentValues();
             values.put(ActivitiesContract.AnswerEntry.COLUMN_QUESTION_ID, i);
@@ -180,6 +210,8 @@ public class QuestionsFragment extends Fragment implements SeekBar.OnSeekBarChan
             getActivity().getContentResolver().insert(ActivitiesContract.AnswerEntry.CONTENT_URI,
                     values);
         }
+
+        //adds Points to database
         ContentValues pointValues = new ContentValues();
         pointValues.put(ActivitiesContract.PointEntry.COLUMN_POINT, 10);
         pointValues.put(ActivitiesContract.PointEntry.COLUMN_DATE, currentDateTimeStr);
@@ -279,6 +311,10 @@ public class QuestionsFragment extends Fragment implements SeekBar.OnSeekBarChan
 
     }
 
+    /**
+     * does nothing
+     * @param parent
+     */
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 

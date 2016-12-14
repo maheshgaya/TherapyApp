@@ -54,6 +54,13 @@ public class ActivitiesDetailFragment extends Fragment {
     }
 
 
+    /**
+     * initializes the views
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -62,7 +69,9 @@ public class ActivitiesDetailFragment extends Fragment {
         Intent callingIntent = getActivity().getIntent();
         final String activitiesId = callingIntent.getStringExtra(ACTIVITIES_EXTRA);
 
-
+        /**
+         * queries the activity passed
+         */
         Cursor activitiesCursor = getActivity().getContentResolver().query(
                 ActivitiesContract.ActivityEntry.CONTENT_URI,
                 Constants.ACTIVITIES_PROJECTION,
@@ -138,7 +147,12 @@ public class ActivitiesDetailFragment extends Fragment {
         return rootView;
     }
 
+    /**
+     * add goals and points to the database
+     * @param activitiesId
+     */
     private void addToDatabase(long activitiesId){
+        //add goals
         //prepare to insert into database
         ContentValues goalsValues = new ContentValues();
         goalsValues.put(ActivitiesContract.GoalEntry.COLUMN_ACTIVITIES_ID, activitiesId);
@@ -150,6 +164,7 @@ public class ActivitiesDetailFragment extends Fragment {
                 goalsValues
         );
 
+        //add points
         ContentValues pointsValues = new ContentValues();
         pointsValues.put(ActivitiesContract.PointEntry.COLUMN_DATE, Utilities.getCurrentTime());
         pointsValues.put(ActivitiesContract.PointEntry.COLUMN_POINT, 50);

@@ -95,6 +95,10 @@ public class PointFragment extends Fragment implements LoaderManager.LoaderCallb
         //required default constructor
     }
 
+    /**
+     * activate retainInstance
+     * @param savedInstanceState
+     */
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -102,6 +106,10 @@ public class PointFragment extends Fragment implements LoaderManager.LoaderCallb
 
     }
 
+    /**
+     * Initialize the loaders
+     * @param savedInstanceState
+     */
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         getLoaderManager().initLoader(POINTS_LOADER, null, this);
@@ -111,12 +119,20 @@ public class PointFragment extends Fragment implements LoaderManager.LoaderCallb
 
     }
 
+    /**
+     * create the views and add functionality to Question button
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_points, container, false);
         ButterKnife.bind(this, rootView);
 
+        //starts Question Activity
         mAddQuestionBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -125,14 +141,15 @@ public class PointFragment extends Fragment implements LoaderManager.LoaderCallb
             }
         });
 
-
-
         return rootView;
     }
 
-
-
-
+    /**
+     * Queries the database
+     * @param id
+     * @param args
+     * @return
+     */
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         switch (id){
@@ -167,6 +184,11 @@ public class PointFragment extends Fragment implements LoaderManager.LoaderCallb
 
     }
 
+    /**
+     * Once data is received, update UI
+     * @param loader
+     * @param data
+     */
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
         switch (loader.getId()){
@@ -189,8 +211,9 @@ public class PointFragment extends Fragment implements LoaderManager.LoaderCallb
                 break;
             }
             case MOOD_LOADER:{
-
+                //maps key->dates, value->moods
                 Map<String, String> moods = new HashMap<String, String>();
+                //nice formatting for xAxis instead of 1,2,3..
                 ArrayList<String> dateXAxisValues = new ArrayList<String>(){};
               
                 while (data.moveToNext()){
@@ -227,6 +250,7 @@ public class PointFragment extends Fragment implements LoaderManager.LoaderCallb
 
                 }
 
+                //Configures the Chart
                 String[] dateArray = dateXAxisValues.toArray(new String[dateXAxisValues.size()]);
                 //add date to x Axis
                 AxisFormatter formatter = new AxisFormatter(getContext(), dateArray);
@@ -251,6 +275,7 @@ public class PointFragment extends Fragment implements LoaderManager.LoaderCallb
                     i++;
                 }
 
+                //Add data to chart
                 LineDataSet dataSet = new LineDataSet(moodEntries, getString(R.string.weekly_mood));
                 //Customization
                 //disable value text for each point
@@ -275,6 +300,10 @@ public class PointFragment extends Fragment implements LoaderManager.LoaderCallb
         }
     }
 
+    /**
+     * Does nothing
+     * @param loader
+     */
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
 

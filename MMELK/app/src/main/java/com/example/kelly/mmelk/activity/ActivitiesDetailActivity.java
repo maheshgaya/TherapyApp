@@ -18,6 +18,10 @@ public class ActivitiesDetailActivity extends AppCompatActivity {
     @BindView(R.id.toolbar)
     Toolbar mToolbar; //toolbar
 
+    /**
+     * setup the toolbar
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

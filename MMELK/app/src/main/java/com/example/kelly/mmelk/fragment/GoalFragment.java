@@ -49,17 +49,11 @@ import butterknife.ButterKnife;
 
 public class GoalFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor>{
 
-
-
-
     private static final int GOAL_LOADER = 0;
-
     private static final int GOAL_ACTIVITIES_LOADER = 0;
-
     private static final int ACTIVITIES_LOADER = 1;
 
     private Cursor mActivitiesCursor;
-
 
     @BindView(R.id.empty_goals_recycleview)TextView mEmptyRecycleView;
     @BindView(R.id.goals_recycleview) RecyclerView mRecycleView;
@@ -70,6 +64,10 @@ public class GoalFragment extends Fragment implements LoaderManager.LoaderCallba
         //required default constructor
     }
 
+    /**
+     * initialize the loaders
+     * @param savedInstanceState
+     */
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         getLoaderManager().initLoader(GOAL_ACTIVITIES_LOADER, null, this);
@@ -77,6 +75,10 @@ public class GoalFragment extends Fragment implements LoaderManager.LoaderCallba
         super.onActivityCreated(savedInstanceState);
     }
 
+    /**
+     * sets retainInstance to true
+     * @param savedInstanceState
+     */
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,6 +86,9 @@ public class GoalFragment extends Fragment implements LoaderManager.LoaderCallba
 
     }
 
+    /**
+     * close open cursors
+     */
     @Override
     public void onDestroy() {
         //close cursors to avoid memory leak
@@ -93,16 +98,20 @@ public class GoalFragment extends Fragment implements LoaderManager.LoaderCallba
         super.onDestroy();
     }
 
+    /**
+     * configures the recycle view
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater,
+                             @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_goals, container, false);
         ButterKnife.bind(this, rootView);
-
-
-
-
-
         mGoalsActivitiesAdapter = new GoalsAdapter(getContext(), null);
         mRecycleView.setHasFixedSize(true);
         LinearLayoutManager linearTrailerLayoutManager = new LinearLayoutManager(getContext());

@@ -43,6 +43,13 @@ public class ActivitiesFragment extends Fragment implements LoaderManager.Loader
         setRetainInstance(true);
     }
 
+    /**
+     * creates and initializes the views
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -67,7 +74,12 @@ public class ActivitiesFragment extends Fragment implements LoaderManager.Loader
         super.onActivityCreated(savedInstanceState);
     }
 
-
+    /**
+     * queries the database
+     * @param id
+     * @param args
+     * @return
+     */
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         return new CursorLoader(getContext(),
@@ -78,6 +90,11 @@ public class ActivitiesFragment extends Fragment implements LoaderManager.Loader
                 ActivitiesContract.ActivityEntry.COLUMN_CATEGORY + " ASC");
     }
 
+    /**
+     * swaps the cursor ultimately update the UI
+     * @param loader
+     * @param cursor
+     */
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
         mActivitiesAdapter.swapCursor(cursor);
@@ -90,6 +107,10 @@ public class ActivitiesFragment extends Fragment implements LoaderManager.Loader
         }
     }
 
+    /**
+     * resets the adapter
+     * @param loader
+     */
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
         mActivitiesAdapter.swapCursor(null);
