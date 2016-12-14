@@ -15,18 +15,16 @@ import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
-<<<<<<< HEAD
-import android.widget.ExpandableListAdapter;
-import android.widget.ExpandableListView;
-import android.widget.Toast;
-=======
+
+
+
 import android.widget.TextView;
->>>>>>> refs/remotes/kharts227/master
+
 
 import com.example.kelly.mmelk.Constants;
 import com.example.kelly.mmelk.R;
 import com.example.kelly.mmelk.adapter.ActivitiesAdapter;
-<<<<<<< HEAD
+
 
 import com.example.kelly.mmelk.data.ActivitiesContract;
 
@@ -35,11 +33,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-=======
+
 import com.example.kelly.mmelk.adapter.GoalsAdapter;
 import com.example.kelly.mmelk.data.ActivitiesContract;
 
->>>>>>> refs/remotes/kharts227/master
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -50,24 +48,23 @@ import butterknife.ButterKnife;
  */
 
 public class GoalFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor>{
-<<<<<<< HEAD
+
 
 
 
     private static final int GOAL_LOADER = 0;
-=======
+
     private static final int GOAL_ACTIVITIES_LOADER = 0;
->>>>>>> refs/remotes/kharts227/master
+
     private static final int ACTIVITIES_LOADER = 1;
 
     private Cursor mActivitiesCursor;
 
-<<<<<<< HEAD
-=======
+
     @BindView(R.id.empty_goals_recycleview)TextView mEmptyRecycleView;
     @BindView(R.id.goals_recycleview) RecyclerView mRecycleView;
     private GoalsAdapter mGoalsActivitiesAdapter;
->>>>>>> refs/remotes/kharts227/master
+
 
     public GoalFragment(){
         //required default constructor
@@ -101,18 +98,18 @@ public class GoalFragment extends Fragment implements LoaderManager.LoaderCallba
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_goals, container, false);
         ButterKnife.bind(this, rootView);
-<<<<<<< HEAD
 
 
 
-=======
+
+
         mGoalsActivitiesAdapter = new GoalsAdapter(getContext(), null);
         mRecycleView.setHasFixedSize(true);
         LinearLayoutManager linearTrailerLayoutManager = new LinearLayoutManager(getContext());
         linearTrailerLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mRecycleView.setLayoutManager(linearTrailerLayoutManager);
         mRecycleView.setAdapter(mGoalsActivitiesAdapter);
->>>>>>> refs/remotes/kharts227/master
+
         return rootView;
     }
 

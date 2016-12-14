@@ -43,15 +43,15 @@
             android:textColor="@android:color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-<<<<<<< HEAD
+
             android:text="Points"/>
         <ListView
             android:id="@android:id/list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"></ListView>
-=======
+
             android:text="@string/add_mood_btn"/>
->>>>>>> refs/remotes/kharts227/master
+
     </LinearLayout>
 
 </ScrollView>

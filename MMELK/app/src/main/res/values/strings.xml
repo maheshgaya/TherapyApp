@@ -77,8 +77,7 @@
     <string name="res_swimming" translatable="false">swimming</string>
     <string name="res_team" translatable="false">team</string>
 
-<<<<<<< HEAD
-=======
+
     <!-- buttons -->
     <string name="add_goal_btn">Add to Goals</string>
     <string name="add_mood_btn">Add your mood today!</string>
@@ -92,5 +91,5 @@
     <string name="item_deleted">was removed!</string>
 
     <string name="line_description">Mood over Time</string>
->>>>>>> refs/remotes/kharts227/master
+
 </resources>
