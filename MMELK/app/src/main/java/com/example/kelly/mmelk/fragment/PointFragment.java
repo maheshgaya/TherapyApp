@@ -49,13 +49,17 @@ import android.widget.Toast;
 import com.example.kelly.mmelk.Constants;
 import com.example.kelly.mmelk.R;
 import com.example.kelly.mmelk.Utilities;
+import com.example.kelly.mmelk.activity.MainActivity;
 import com.example.kelly.mmelk.activity.QuestionActivity;
 import com.example.kelly.mmelk.data.ActivitiesContract;
+import com.example.kelly.mmelk.data.AxisFormatter;
 import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.formatter.DefaultAxisValueFormatter;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -94,13 +98,8 @@ public class PointFragment extends Fragment implements LoaderManager.LoaderCallb
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setRetainInstance(true);
 
-
-
-
-        setRetainInstance(false);
     }
 
     @Override
@@ -130,6 +129,8 @@ public class PointFragment extends Fragment implements LoaderManager.LoaderCallb
 
         return rootView;
     }
+
+
 
 
     @Override
@@ -190,11 +191,15 @@ public class PointFragment extends Fragment implements LoaderManager.LoaderCallb
                 break;
             }
             case MOOD_LOADER:{
-                final Map<String, String> moods = new HashMap<String, String>();
+
+                Map<String, String> moods = new HashMap<String, String>();
+                ArrayList<String> dateXAxisValues = new ArrayList<String>(){};
+              
                 while (data.moveToNext()){
                     //X - date ,Y - moods
                     moods.put(data.getString(Constants.COLUMN_ANSWERS_DATE),
                             data.getString(Constants.COLUMN_ANSWERS_ANSWER));
+
                     final String[] mood_dates = new String[moods.keySet().size()];
                     for(int i = 0; i < moods.keySet().size(); i++)
                     {
@@ -217,17 +222,36 @@ public class PointFragment extends Fragment implements LoaderManager.LoaderCallb
 //                        }
 
 //                    });
+
+                    dateXAxisValues.add(data.getString(Constants.COLUMN_ANSWERS_DATE));
+
                 }
 
-                List<Entry> moodEntries = new ArrayList<Entry>();
+                String[] dateArray = dateXAxisValues.toArray(new String[dateXAxisValues.size()]);
+                //add date to x Axis
+                AxisFormatter formatter = new AxisFormatter(getContext(), dateArray);
 
+                AxisBase xAxis = mLineChart.getXAxis();
+                xAxis.setAxisMinimum(0);
+                xAxis.setGranularity(2f); // minimum axis-step (interval) is 2
+                xAxis.setValueFormatter(formatter);
+
+                AxisBase leftAxis = mLineChart.getAxisLeft();
+                leftAxis.setAxisMinimum(0);
+                leftAxis.setAxisMaximum(5);
+
+                AxisBase rightAxis = mLineChart.getAxisRight();
+                rightAxis.setAxisMinimum(0);
+                rightAxis.setAxisMaximum(5);
+
+                List<Entry> moodEntries = new ArrayList<Entry>();
                 int i = 1;
                 for (String key: moods.keySet()){
                     moodEntries.add(new Entry(i, Float.parseFloat(moods.get(key))));
                     i++;
                 }
 
-                LineDataSet dataSet = new LineDataSet(moodEntries, "Moods");
+                LineDataSet dataSet = new LineDataSet(moodEntries, getString(R.string.weekly_mood));
                 //Customization
                 //disable value text for each point
                 dataSet.setDrawValues(false);
@@ -235,11 +259,11 @@ public class PointFragment extends Fragment implements LoaderManager.LoaderCallb
                 //change color for Circle dots
                 if (Build.VERSION.SDK_INT > 22) {
                     dataSet.setCircleColor(getResources().getColor(R.color.colorPrimaryDark, null));
+                    dataSet.setColor(getResources().getColor(R.color.colorPrimary, null));
                 } else {
                     dataSet.setCircleColor(getResources().getColor(R.color.colorPrimaryDark));
+                    dataSet.setColor(getResources().getColor(R.color.colorPrimary));
                 }
-
-
 
                 LineData lineData = new LineData(dataSet);
                 mLineChart.setData(lineData);

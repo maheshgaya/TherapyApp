@@ -149,6 +149,16 @@ public class ActivitiesDetailFragment extends Fragment {
                 ActivitiesContract.GoalEntry.CONTENT_URI,
                 goalsValues
         );
+
+        ContentValues pointsValues = new ContentValues();
+        pointsValues.put(ActivitiesContract.PointEntry.COLUMN_DATE, Utilities.getCurrentTime());
+        pointsValues.put(ActivitiesContract.PointEntry.COLUMN_POINT, 50);
+        getActivity().getContentResolver().insert(
+                ActivitiesContract.PointEntry.CONTENT_URI,
+                pointsValues
+        );
+        Toast.makeText(getContext(), getString(R.string.fifty_earned_points), Toast.LENGTH_SHORT).show();
+
         ActivitiesAdapter.mActivity.finish();
         getActivity().finish(); //end the activity
     }

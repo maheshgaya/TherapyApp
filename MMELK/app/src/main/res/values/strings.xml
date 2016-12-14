@@ -1,6 +1,6 @@
 <resources>
     <!-- activity labels -->
-    <string name="app_name">MMELK</string>
+    <string name="app_name">Serenity</string>
     <string name="label_activities_activity">Select Activity</string>
     <string name="title_activity_main">Serenity</string>
     <string name="label_goal">Goals</string>
@@ -87,9 +87,18 @@
 
     <string name="action_edit">Edit</string>
     <string name="action_delete">Delete</string>
+    <string name="action_sign_out">Sign out</string>
 
     <string name="item_deleted">was removed!</string>
 
     <string name="line_description">Mood over Time</string>
+
+
+    <string name="fifty_earned_points">You earned 50 points!</string>
+    <string name="ten_earned_points">You earned 10 points!</string>
+    <string name="weekly_mood">Weekly Mood</string>
+
+    <string name="welcome_message">Welcome</string>
+    <string name="goodbye_message">Goodbye!</string>
 
 </resources>
