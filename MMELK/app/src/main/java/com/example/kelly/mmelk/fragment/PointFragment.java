@@ -1,14 +1,43 @@
 package com.example.kelly.mmelk.fragment;
 
+
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteOpenHelper;
+
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.PointF;
 import android.os.Build;
+
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
+
+import android.support.v4.widget.SimpleCursorAdapter;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import com.example.kelly.mmelk.Constants;
+import com.example.kelly.mmelk.R;
+import com.example.kelly.mmelk.activity.MainActivity;
+import com.example.kelly.mmelk.adapter.ActivitiesAdapter;
+//import com.example.kelly.mmelk.adapter.QuestionDateAdapter;
+import com.example.kelly.mmelk.data.ActivitiesContract;
+import com.example.kelly.mmelk.data.ActivitiesDBHelper;
+import com.example.kelly.mmelk.data.ActivitiesProvider;
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,10 +62,12 @@ import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.formatter.DefaultAxisValueFormatter;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -46,15 +77,18 @@ import butterknife.ButterKnife;
  */
 
 public class PointFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor>{
+
     private static final String TAG = PointFragment.class.getSimpleName();
     public static final int REQUEST_QUESTION = 1;
     public static final int POINTS_LOADER = 1;
     public static final int ANSWERS_LOADER = 2;
     public static final int MOOD_LOADER = 3;
 
+
     @BindView(R.id.add_question_btn)Button mAddQuestionBtn;
     @BindView(R.id.chart)LineChart mLineChart;
     @BindView(R.id.points_textview)TextView mPointsTextView;
+
 
 
     public PointFragment(){
@@ -65,6 +99,7 @@ public class PointFragment extends Fragment implements LoaderManager.LoaderCallb
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
+
     }
 
     @Override
@@ -73,6 +108,7 @@ public class PointFragment extends Fragment implements LoaderManager.LoaderCallb
         getLoaderManager().initLoader(ANSWERS_LOADER, null, this);
         getLoaderManager().initLoader(MOOD_LOADER, null, this);
         super.onActivityCreated(savedInstanceState);
+
     }
 
     @Nullable
@@ -80,6 +116,7 @@ public class PointFragment extends Fragment implements LoaderManager.LoaderCallb
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_points, container, false);
         ButterKnife.bind(this, rootView);
+
         mAddQuestionBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -87,6 +124,8 @@ public class PointFragment extends Fragment implements LoaderManager.LoaderCallb
                 startActivityForResult(intent, REQUEST_QUESTION);
             }
         });
+
+
 
         return rootView;
     }
@@ -96,6 +135,8 @@ public class PointFragment extends Fragment implements LoaderManager.LoaderCallb
 
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+
+
         switch (id){
             case  POINTS_LOADER: {
                 return new CursorLoader(getActivity(),
@@ -126,7 +167,6 @@ public class PointFragment extends Fragment implements LoaderManager.LoaderCallb
                 return null;
         }
 
-
     }
 
     @Override
@@ -151,13 +191,40 @@ public class PointFragment extends Fragment implements LoaderManager.LoaderCallb
                 break;
             }
             case MOOD_LOADER:{
+
                 Map<String, String> moods = new HashMap<String, String>();
                 ArrayList<String> dateXAxisValues = new ArrayList<String>(){};
+              
                 while (data.moveToNext()){
                     //X - date ,Y - moods
                     moods.put(data.getString(Constants.COLUMN_ANSWERS_DATE),
                             data.getString(Constants.COLUMN_ANSWERS_ANSWER));
+
+                    final String[] mood_dates = new String[moods.keySet().size()];
+                    for(int i = 0; i < moods.keySet().size(); i++)
+                    {
+                        mood_dates[i] = (String) moods.keySet().toArray()[i];
+                    }
+                    Arrays.sort(mood_dates);
+                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),android.R.layout.simple_list_item_1,mood_dates);
+                    final ListView listview = (ListView) getView().findViewById(android.R.id.list);
+                    listview.setAdapter(adapter);
+
+
+//                    listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//                        @Override
+//                        public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+//                            Intent i = new Intent(getActivity(), QuestionActivity.class);
+//                            i.putExtra("date", mood_dates[position]);
+//                            i.putExtra("answers",moods.get(mood_dates));
+//
+//                            startActivity(i);
+//                        }
+
+//                    });
+
                     dateXAxisValues.add(data.getString(Constants.COLUMN_ANSWERS_DATE));
+
                 }
 
                 String[] dateArray = dateXAxisValues.toArray(new String[dateXAxisValues.size()]);
@@ -213,4 +280,6 @@ public class PointFragment extends Fragment implements LoaderManager.LoaderCallb
     public void onLoaderReset(Loader<Cursor> loader) {
 
     }
+
+
 }

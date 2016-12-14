@@ -77,6 +77,7 @@
     <string name="res_swimming" translatable="false">swimming</string>
     <string name="res_team" translatable="false">team</string>
 
+
     <!-- buttons -->
     <string name="add_goal_btn">Add to Goals</string>
     <string name="add_mood_btn">Add your mood today!</string>
@@ -92,10 +93,12 @@
 
     <string name="line_description">Mood over Time</string>
 
+
     <string name="fifty_earned_points">You earned 50 points!</string>
     <string name="ten_earned_points">You earned 10 points!</string>
     <string name="weekly_mood">Weekly Mood</string>
 
     <string name="welcome_message">Welcome</string>
     <string name="goodbye_message">Goodbye!</string>
+
 </resources>
