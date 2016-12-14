@@ -11,11 +11,36 @@ The icons were retrieved from [Flat Icons](http://www.flaticon.com/)
     $ git clone https://github.com/maheshgaya/CS188Project3.git
     $ cd CS188Project3/
   ```
-2. Import the project in Android Studio
+  
+2. This project uses Firebase Authentication For Google and Email Sign-in. You need to get the configuration file from
+the [Google Firebase Console](https://console.firebase.google.com).
+
+  **Steps:**
+  
+  1. Click on "Create a new project" in the Firebase Console to create a new project
+  2. Give it a useful name, choose your region, and click on "Create Project"
+  3. Click on "Add Firebase to your Android App"
+  4. The package name should be "com.example.kelly.mmelk" (without quotes). You can give it a nickname.
+  5. Now on your computer terminal generate a SHA1 key with the following statement :
+  
+      ```
+      $ keytool -exportcert -alias androiddebugkey -keystore ~/.android/debug.keystore -list -v
+      ```
+      
+      **(Note: you can leave the password blank)**
+      
+     Copy the SHA1 and put that into the "Debug signing certificate SHA-1" field.
+  6. Then click on "Add App". Make sure you download the "google-services.json"
+  7. Add the "google-services.json" to the "app" directory
+  8. Now, go back to the Firebase console and select Develop->Authentication on the left navigation menu
+  9. Go to "Sign-in method" and enable "Google" and "Email/Password"
+  
+3. Import the project in Android Studio
 
   ```
     File -> New -> Import Project -> (Choose CS188Project3/MMELK/)
   ```
+4. Run the app on an Android phone. Emulator will not work as they currently don't support the latest version of Firebase API
 
 ## Contributing to the Source Code
 1. Fork this repository by clicking on the Fork button on the top right corner
