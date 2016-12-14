@@ -1,5 +1,5 @@
 # CS188Project3
-CS188 Project 3 Group 1
+An Android app that provides a list of things to do for patients that need therapy. Software Engineering - Project 3 - Fall 2016
 
 ## Disclaimer
 The icons were retrieved from [Flat Icons](http://www.flaticon.com/)
