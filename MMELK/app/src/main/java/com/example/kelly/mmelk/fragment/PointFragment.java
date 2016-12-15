@@ -221,17 +221,21 @@ public class PointFragment extends Fragment implements LoaderManager.LoaderCallb
                     moods.put(data.getString(Constants.COLUMN_ANSWERS_DATE),
                             data.getString(Constants.COLUMN_ANSWERS_ANSWER));
 
-                    // Assignment: add a listview for dates
-                    // @author Lhito
-                    String[] mood_dates = new String[moods.keySet().size()];
-                    for(int i = 0; i < moods.keySet().size(); i++)
-                    {
-                        mood_dates[i] = (String) moods.keySet().toArray()[i];
-                    }
-                    Arrays.sort(mood_dates);
-                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),android.R.layout.simple_list_item_1,mood_dates);
-                    ListView listview = (ListView) getView().findViewById(android.R.id.list);
-                    listview.setAdapter(adapter);
+                    dateXAxisValues.add(data.getString(Constants.COLUMN_ANSWERS_DATE));
+
+                }
+                
+                // Assignment: add a listview for dates
+                // @author Lhito
+                String[] mood_dates = new String[moods.keySet().size()];
+                for(int i = 0; i < moods.keySet().size(); i++)
+                {
+                    mood_dates[i] = (String) moods.keySet().toArray()[i];
+                }
+                Arrays.sort(mood_dates);
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),android.R.layout.simple_list_item_1,mood_dates);
+                ListView listview = (ListView) getView().findViewById(android.R.id.list);
+                listview.setAdapter(adapter);
 
 
 //                    listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -246,12 +250,9 @@ public class PointFragment extends Fragment implements LoaderManager.LoaderCallb
 
 //                    });
 
-                    dateXAxisValues.add(data.getString(Constants.COLUMN_ANSWERS_DATE));
-
-                }
-
-                //Configures the Chart
+                //To Configure the Chart
                 String[] dateArray = dateXAxisValues.toArray(new String[dateXAxisValues.size()]);
+
                 //add date to x Axis
                 AxisFormatter formatter = new AxisFormatter(getContext(), dateArray);
 
