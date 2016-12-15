@@ -1,6 +1,7 @@
 package com.example.kelly.mmelk.data;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.formatter.IAxisValueFormatter;
@@ -13,6 +14,7 @@ import com.github.mikephil.charting.formatter.IAxisValueFormatter;
  * custom Axis formatter for x-axis
  */
 public class AxisFormatter implements IAxisValueFormatter {
+    private static final String TAG = AxisFormatter.class.getSimpleName();
     private Context mContext;
     private String[] mDateArray;
 
@@ -34,6 +36,12 @@ public class AxisFormatter implements IAxisValueFormatter {
      */
     @Override
     public String getFormattedValue(float value, AxisBase axis) {
-        return mDateArray[(int)value];
+        int index = (int)value - 1;
+        if (index <= 0){
+            index = 0;
+        }
+
+        return mDateArray[index];
+
     }
 }
